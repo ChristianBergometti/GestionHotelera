@@ -20,6 +20,18 @@ public class Habitacion {
     private Double precio;
     private Boolean alta;
 
+    public Habitacion() {
+    }
+
+    public Habitacion(String numero, Integer capacidad, Double precio, Boolean alta) {
+        this.numero = numero;
+        this.capacidad = capacidad;
+        this.precio = precio;
+        this.alta = alta;
+    }
+    
+    
+    
     /**
      * @return the id
      */
