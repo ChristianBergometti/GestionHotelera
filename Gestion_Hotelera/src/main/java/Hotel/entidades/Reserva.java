@@ -27,7 +27,7 @@ public class Reserva {
     private Date egreso;
 
     @OneToMany
-    private Habitacion habitacion;
+    private List<Habitacion> habitaciones;
 
     @ManyToOne
     private Usuario usuario;
