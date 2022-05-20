@@ -29,7 +29,7 @@ public class Reserva {
     @OneToMany
     private Habitacion habitacion;
 
-    @OneToOne
+    @ManyToOne
     private Usuario usuario;
 
 
