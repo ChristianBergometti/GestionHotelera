@@ -21,8 +21,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String id, String nombre, String DNI, String email, String clave, boolean alta) {
-        this.id = id;
+    public Usuario(String nombre, String DNI, String email, String clave, boolean alta) {
         this.nombre = nombre;
         this.DNI = DNI;
         this.email = email;
@@ -80,7 +79,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", DNI=" + DNI + ", email=" + email + ", clave=" + clave + ", alta=" + alta + '}';
+        return "Usuario{" + ", Usuario=" + nombre + ", DNI=" + DNI + ", e-mail=" + email  + '}';
     }
     
     
