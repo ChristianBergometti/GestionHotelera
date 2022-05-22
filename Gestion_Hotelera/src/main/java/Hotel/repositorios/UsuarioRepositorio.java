@@ -11,16 +11,13 @@ import org.springframework.stereotype.Repository;
 public interface UsuarioRepositorio extends JpaRepository<Usuario, String> {
 
 
-    @Query("SELECT i FROM Usuario i WHERE i.id = id")
-    Usuario buscarPorID(@Param("id") String id);
-
-    @Query("SELECT n FROM Usuario n WHERE n.nombre = nombre")
+    @Query("SELECT n FROM Usuario n WHERE n.nombre = :nombre")
     Usuario buscarPorNombre(@Param("nombre") String nombre);
 
-    @Query("SELECT e FROM Usuario e WHERE e.email = email")
+    @Query("SELECT e FROM Usuario e WHERE e.email = :email")
     Usuario buscarPorEmail(@Param("email") String email);
 
-    @Query("SELECT d FROM Usuario d WHERE d.DNI = DNI")
+    @Query("SELECT d FROM Usuario d WHERE d.DNI = :DNI")
     Usuario buscarPorDNI(@Param("DNI") String DNI);
 
 }

@@ -13,17 +13,16 @@ public class Reserva {
     @GenericGenerator(name = "uuid" , strategy = "uuid2")
     private String id;
 
-    private String clave;
     private Boolean alta;
 
     private Double precio;
 
     private Integer personas;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date ingreso;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date egreso;
 
     @OneToMany
@@ -37,15 +36,14 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(String clave, Boolean alta, Double precio, Integer personas, Date ingreso, Date egreso,
-                   Habitacion habitacion, Usuario usuario) {
-        this.clave = clave;
+    public Reserva(Boolean alta, Double precio, Integer personas, Date ingreso, Date egreso,
+                   List<Habitacion> habitaciones, Usuario usuario) {
         this.alta = alta;
         this.precio = precio;
         this.personas = personas;
         this.ingreso = ingreso;
         this.egreso = egreso;
-        this.habitacion = habitacion;
+        this.habitaciones = habitaciones;
         this.usuario = usuario;
     }
 
@@ -57,13 +55,6 @@ public class Reserva {
         this.id = id;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
 
     public Boolean getAlta() {
         return alta;
@@ -105,12 +96,12 @@ public class Reserva {
         this.egreso = egreso;
     }
 
-    public Habitacion getHabitacion() {
-        return habitacion;
+    public List<Habitacion> getHabitaciones() {
+        return habitaciones;
     }
 
-    public void setHabitacion(Habitacion habitacion) {
-        this.habitacion = habitacion;
+    public void setHabitaciones(List<Habitacion> habitaciones) {
+        this.habitaciones = habitaciones;
     }
 
     public Usuario getUsuario() {
@@ -123,16 +114,9 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" +
-                "id='" + id + '\'' +
-                ", clave='" + clave + '\'' +
-                ", alta=" + alta +
-                ", precio=" + precio +
-                ", personas=" + personas +
-                ", ingreso=" + ingreso +
-                ", egreso=" + egreso +
-                ", habitacion=" + habitacion +
-                ", usuario=" + usuario +
-                '}';
+        return "DATOS DE RESERVA id:  " + id  + " alta: " + alta + " precio: " + precio +
+                " cantidad de personas: " + personas + " fecha de ingreso: " + ingreso +
+                " fecha de egreso:" + egreso + " datos de la  habitacion: " + habitacion +
+                " datos del usuario: " + usuario + ".";
     }
 }
