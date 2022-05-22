@@ -114,9 +114,11 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "DATOS DE RESERVA id:  " + id  + " alta: " + alta + " precio: " + precio +
-                " cantidad de personas: " + personas + " fecha de ingreso: " + ingreso +
-                " fecha de egreso:" + egreso + " datos de la  habitacion: " + habitacion +
-                " datos del usuario: " + usuario + ".";
+        return "Datos de su Reserva" +
+                "\nCosto de estadía: $" + precio +
+                "\nPara " + personas + " personas." +
+                "\nCheck in: " + ingreso +
+                "\nCheck out: " + egreso +
+                "\n\nDatos de la/s habitacion/es: " + habitaciones;
     }
 }
