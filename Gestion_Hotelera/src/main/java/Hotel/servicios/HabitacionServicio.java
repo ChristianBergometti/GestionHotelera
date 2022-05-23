@@ -5,7 +5,6 @@ import Hotel.errores.ErrorServicio;
 import Hotel.repositorios.HabitacionRepositorio;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,14 +26,17 @@ public class HabitacionServicio {
         habitacionRepositorio.save(habitacion);
     }
     
+    @Transactional(readOnly = true)
     public List<Habitacion> listarHabitaciones() {
         return habitacionRepositorio.findAll();
     }
     
+    @Transactional(readOnly = true)
     public List<Habitacion> buscarPorPrecio(Double precio) {
         return habitacionRepositorio.habitacionesPorPrecio(precio);
     }
     
+    @Transactional(readOnly = true)
     public Habitacion buscarPorId(String id) throws ErrorServicio {
         Optional<Habitacion> habitacion = habitacionRepositorio.findById(id);
         
