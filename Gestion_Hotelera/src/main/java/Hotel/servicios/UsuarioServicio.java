@@ -17,7 +17,7 @@ public class UsuarioServicio {
     //private UsuarioRepositorio usuarioRepositorio;
        
     public void creaUsuario(String nombre, String DNI, String mail, String clave, boolean alta) throws ErrorServicio {
-        Validar();
+        validar(nombre, DNI, mail, clave);
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setDNI(DNI);
@@ -31,7 +31,7 @@ public class UsuarioServicio {
     }
     
     public void editarUsuario(String id, String nombre, String DNI, String mail, String clave) throws ErrorServicio {
-        //Validar();
+        validar(nombre, DNI, mail, clave);
         
         Optional<Usuario> respuesta=usuarioRepositorio.findById(id);
         

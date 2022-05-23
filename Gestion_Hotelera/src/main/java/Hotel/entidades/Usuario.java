@@ -79,7 +79,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + ", Usuario=" + nombre + ", DNI=" + DNI + ", e-mail=" + email  + '}';
+        return "Usuario{" + ","
+                + " Usuario=" + nombre
+                + ", DNI=" + DNI 
+                + ", e-mail=" + email  + '}';
     }
     
     
