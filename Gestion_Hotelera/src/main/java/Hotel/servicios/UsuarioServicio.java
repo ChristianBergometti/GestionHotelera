@@ -1,11 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Hotel.servicios;
 
 import Hotel.entidades.Usuario;
+import Hotel.errores.ErrorServicio;
+import Hotel.repositorios.UsuarioRepositorio;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class UsuarioServicio {
 
     @Autowired
-    //private UsuarioRepositorio usuarioRepositorio;
+    private UsuarioRepositorio usuarioRepositorio;
 
     public void creaUsuario(String nombre, String DNI, String mail, String clave, boolean alta) throws ErrorServicio {
         validar(nombre, DNI, mail, clave);
