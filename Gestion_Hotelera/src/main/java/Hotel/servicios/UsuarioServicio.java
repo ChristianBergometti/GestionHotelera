@@ -22,6 +22,7 @@ public class UsuarioServicio {
         usuario.setEmail(mail);
         usuario.setClave(clave);
         usuario.setAlta(alta);
+        
         usuarioRepositorio.save(usuario);
 
     }
