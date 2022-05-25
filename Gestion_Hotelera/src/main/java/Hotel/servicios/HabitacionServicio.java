@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class HabitacionServicio {
     
     @Autowired
-    HabitacionRepositorio habitacionRepositorio;
+    private HabitacionRepositorio habitacionRepositorio;
     
     @Transactional
     public void altaBaja(Habitacion habitacion) {
