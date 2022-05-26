@@ -14,6 +14,5 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     @Query("SELECT c FROM Habitacion c WHERE c.precio = :precioHabitacion")
     public List<Habitacion> habitacionesPorPrecio(@Param("precioHabitacion") Double precio);
 
-    @Query("SELECT c FROM Habitacion c WHERE c.alta = :1")
-    public List<Habitacion> listarHabitacionesDisponibles();
+    public List<Habitacion> findByAltaTrue();
 }
