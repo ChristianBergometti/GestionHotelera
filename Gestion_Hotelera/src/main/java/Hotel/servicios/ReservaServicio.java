@@ -5,6 +5,9 @@ import Hotel.entidades.Reserva;
 import Hotel.entidades.Usuario;
 import Hotel.errores.ErrorServicio;
 import Hotel.repositorios.ReservaRepositorio;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import static java.time.temporal.ChronoUnit.DAYS;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +43,7 @@ public class ReservaServicio {
             throw new ErrorServicio("El check-in no puede ser igual al check-out.");
         }
         
-        if ((egreso.getDate()-ingreso.getDate()) < 2) {
+        if (diferenciaDeDias(ingreso, egreso) < 2) {
             throw new ErrorServicio("La reserva no puede ser menor a 2 días de hospedaje.");
         }
         
@@ -73,10 +76,12 @@ public class ReservaServicio {
         reservaRepositorio.save(reserva);
     }
     
+    @Transactional(readOnly = true)
     public List<Reserva> listarReservas() {
         return reservaRepositorio.findAll();
     }
     
+    @Transactional(readOnly = true)
     public List<Reserva> consultarReservasPorIdUsuario(Usuario usuario) throws ErrorServicio {
         List<Reserva> reservas = reservaRepositorio.buscarPorIdUsuario(usuario.getId());
         
@@ -85,5 +90,13 @@ public class ReservaServicio {
         } else {
             return reservas;
         }
+    }
+    
+    public Long diferenciaDeDias(Date ingreso, Date egreso){
+        LocalDate ingresoHotel = ingreso.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        
+        LocalDate egresoHotel = egreso.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        
+        return DAYS.between(ingresoHotel, egresoHotel);
     }
 }
