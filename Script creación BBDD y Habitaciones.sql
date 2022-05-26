@@ -16,4 +16,8 @@ INSERT INTO habitacion VALUES ('A2', 2, 4000);
 INSERT INTO habitacion VALUES ('B1', 4, 7000);
 INSERT INTO habitacion VALUES ('B2', 4, 7000);
 INSERT INTO habitacion VALUES ('C1', 6, 10000);
+<<<<<<< HEAD
 INSERT INTO habitacion VALUES ('C2', 6, 10000);
+=======
+INSERT INTO habitacion VALUES ('C2', 6, 10000);
+>>>>>>> 0e8d6b0fdbdd80998bbd6e92380d830096e75593
