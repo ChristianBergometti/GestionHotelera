@@ -1,26 +1,46 @@
 package Hotel.servicios;
 
 import Hotel.entidades.Usuario;
+<<<<<<< HEAD
 import Hotel.errores.ErrorServicio;
 import Hotel.repositorios.UsuarioRepositorio;
+=======
+
+import java.util.ArrayList;
+>>>>>>> Candela
 import java.util.List;
 import java.util.Optional;
+
+import Hotel.errores.ErrorServicio;
+import Hotel.repositorios.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpSession;
 
 @Service
-public class UsuarioServicio {
+public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
-    public void creaUsuario(String nombre, String DNI, String mail, String clave, boolean alta) throws ErrorServicio {
+    public void crearUsuario(String nombre, String DNI, String mail, String clave, boolean alta) throws ErrorServicio {
         validar(nombre, DNI, mail, clave);
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setDNI(DNI);
         usuario.setEmail(mail);
-        usuario.setClave(clave);
+        String encriptada = new BCryptPasswordEncoder().encode(clave);
+        usuario.setClave(encriptada);
         usuario.setAlta(alta);
         
         usuarioRepositorio.save(usuario);
@@ -37,7 +57,8 @@ public class UsuarioServicio {
             usuario.setNombre(nombre);
             usuario.setDNI(DNI);
             usuario.setEmail(mail);
-            usuario.setClave(clave);
+            String encriptada = new BCryptPasswordEncoder().encode(clave);
+            usuario.setClave(encriptada);
 
             usuarioRepositorio.save(usuario);
         } else {
@@ -106,5 +127,27 @@ public class UsuarioServicio {
             throw new ErrorServicio("No se ha encontrado un Usuario con el ID ingresado.");
         }
     }
+
+  /* @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepositorio.buscarPorEmail(email);
+        if(usuario != null){
+            List<GrantedAuthority> permisos = new ArrayList<>();
+
+
+            GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO_REGISTRADO" + usuario.getRol());
+            permisos.add(p1);
+
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder
+                    .currentRequestAttributes();
+            HttpSession session = attr.getRequest().getSession(true);
+            session.setAttribute("usuariosession", usuario);
+
+            User user = new User(usuario.getEmail(), usuario.getClave(), permisos);
+            return user;
+        } else{
+            return null;
+        }
+    }*/
 
 }

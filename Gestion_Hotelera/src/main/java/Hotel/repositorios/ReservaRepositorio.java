@@ -7,10 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ReservaRepositorio extends JpaRepository<Reserva, String> {
 
-
     @Query("SELECT r FROM Reserva r WHERE r.usuario_id= :usuario_id")
     List<Reserva> buscarPorIdUsuario(@Param("usuario_id") String idUsuario);
+<<<<<<< HEAD
+=======
+
+>>>>>>> Candela
 }
