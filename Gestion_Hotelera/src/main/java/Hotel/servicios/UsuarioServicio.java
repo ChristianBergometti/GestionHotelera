@@ -123,14 +123,14 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
-  /* @Override
+   @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepositorio.buscarPorEmail(email);
         if(usuario != null){
             List<GrantedAuthority> permisos = new ArrayList<>();
 
 
-            GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO_REGISTRADO" + usuario.getRol());
+            GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO_REGISTRADO" /*+ usuario.getRol()*/);
             permisos.add(p1);
 
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder
@@ -143,6 +143,6 @@ public class UsuarioServicio implements UserDetailsService {
         } else{
             return null;
         }
-    }*/
+    }
 
 }
