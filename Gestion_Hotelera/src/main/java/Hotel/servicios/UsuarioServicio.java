@@ -1,13 +1,8 @@
 package Hotel.servicios;
 
 import Hotel.entidades.Usuario;
-<<<<<<< HEAD
-import Hotel.errores.ErrorServicio;
-import Hotel.repositorios.UsuarioRepositorio;
-=======
 
 import java.util.ArrayList;
->>>>>>> Candela
 import java.util.List;
 import java.util.Optional;
 
