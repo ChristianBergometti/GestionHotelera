@@ -84,8 +84,4 @@ public class Usuario {
                 + "\nE-mail=" + email;
     }
     
-    
-    
-    
-    
 }

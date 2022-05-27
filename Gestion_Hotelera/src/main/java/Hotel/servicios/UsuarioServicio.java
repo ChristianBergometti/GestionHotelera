@@ -1,13 +1,8 @@
 package Hotel.servicios;
 
 import Hotel.entidades.Usuario;
-<<<<<<< HEAD
-import Hotel.errores.ErrorServicio;
-import Hotel.repositorios.UsuarioRepositorio;
-=======
 
 import java.util.ArrayList;
->>>>>>> Candela
 import java.util.List;
 import java.util.Optional;
 
@@ -128,14 +123,14 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
-  /* @Override
+   @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepositorio.buscarPorEmail(email);
         if(usuario != null){
             List<GrantedAuthority> permisos = new ArrayList<>();
 
 
-            GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO_REGISTRADO" + usuario.getRol());
+            GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO_REGISTRADO" /*+ usuario.getRol()*/);
             permisos.add(p1);
 
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder
@@ -148,6 +143,6 @@ public class UsuarioServicio implements UserDetailsService {
         } else{
             return null;
         }
-    }*/
+    }
 
 }
