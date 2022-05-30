@@ -1,4 +1,4 @@
-package Hotel.entidades;
+package Hotel.demo.entidades;
 
 import org.hibernate.annotations.GenericGenerator;
 

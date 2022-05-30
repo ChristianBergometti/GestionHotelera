@@ -1,13 +1,13 @@
-package Hotel.servicios;
+package Hotel.demo.servicios;
 
-import Hotel.entidades.Usuario;
+import Hotel.demo.entidades.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import Hotel.errores.ErrorServicio;
-import Hotel.repositorios.UsuarioRepositorio;
+import Hotel.demo.errores.ErrorServicio;
+import Hotel.demo.repositorios.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,11 +16,14 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
+
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpSession;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
@@ -28,6 +31,7 @@ public class UsuarioServicio implements UserDetailsService {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
+    @Transactional
     public void crearUsuario(String nombre, String DNI, String mail, String clave, boolean alta) throws ErrorServicio {
         validar(nombre, DNI, mail, clave);
         Usuario usuario = new Usuario();
@@ -37,11 +41,12 @@ public class UsuarioServicio implements UserDetailsService {
         String encriptada = new BCryptPasswordEncoder().encode(clave);
         usuario.setClave(encriptada);
         usuario.setAlta(alta);
-        
+
         usuarioRepositorio.save(usuario);
 
     }
 
+    @Transactional
     public void editarUsuario(String id, String nombre, String DNI, String mail, String clave) throws ErrorServicio {
         validar(nombre, DNI, mail, clave);
 
@@ -61,6 +66,7 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
+    @Transactional
     public void bajaUsuario(String id) throws ErrorServicio {
         Optional<Usuario> respuesta = usuarioRepositorio.findById(id);
 
@@ -73,6 +79,7 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
+    @Transactional
     public void altaUsuario(String id) throws ErrorServicio {
 
         Optional<Usuario> respuesta = usuarioRepositorio.findById(id);
@@ -123,12 +130,11 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
-   @Override
+    @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepositorio.buscarPorEmail(email);
-        if(usuario != null){
+        if (usuario != null) {
             List<GrantedAuthority> permisos = new ArrayList<>();
-
 
             GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO_REGISTRADO" /*+ usuario.getRol()*/);
             permisos.add(p1);
@@ -140,7 +146,7 @@ public class UsuarioServicio implements UserDetailsService {
 
             User user = new User(usuario.getEmail(), usuario.getClave(), permisos);
             return user;
-        } else{
+        } else {
             return null;
         }
     }

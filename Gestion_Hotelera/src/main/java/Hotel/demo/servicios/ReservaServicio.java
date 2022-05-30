@@ -1,10 +1,10 @@
-package Hotel.servicios;
+package Hotel.demo.servicios;
 
-import Hotel.entidades.Habitacion;
-import Hotel.entidades.Reserva;
-import Hotel.entidades.Usuario;
-import Hotel.errores.ErrorServicio;
-import Hotel.repositorios.ReservaRepositorio;
+import Hotel.demo.entidades.Habitacion;
+import Hotel.demo.entidades.Reserva;
+import Hotel.demo.entidades.Usuario;
+import Hotel.demo.errores.ErrorServicio;
+import Hotel.demo.repositorios.ReservaRepositorio;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import static java.time.temporal.ChronoUnit.DAYS;

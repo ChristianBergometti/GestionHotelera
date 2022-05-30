@@ -1,4 +1,4 @@
-package Hotel.errores;
+package Hotel.demo.errores;
 
 public class ErrorServicio extends Exception {
 

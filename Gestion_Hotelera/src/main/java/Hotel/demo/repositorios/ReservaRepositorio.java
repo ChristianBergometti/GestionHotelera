@@ -1,6 +1,6 @@
-package Hotel.repositorios;
+package Hotel.demo.repositorios;
 
-import Hotel.entidades.Reserva;
+import Hotel.demo.entidades.Reserva;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

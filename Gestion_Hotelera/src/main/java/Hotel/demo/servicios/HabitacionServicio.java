@@ -1,8 +1,8 @@
-package Hotel.servicios;
+package Hotel.demo.servicios;
 
-import Hotel.entidades.Habitacion;
-import Hotel.errores.ErrorServicio;
-import Hotel.repositorios.HabitacionRepositorio;
+import Hotel.demo.entidades.Habitacion;
+import Hotel.demo.errores.ErrorServicio;
+import Hotel.demo.repositorios.HabitacionRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
