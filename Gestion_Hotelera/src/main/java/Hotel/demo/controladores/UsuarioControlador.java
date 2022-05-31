@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Diego
  */
 @Controller
+@RequestMapping("/usuario")
 public class UsuarioControlador {
 
-    @GetMapping("/usuario/registro")
+    @GetMapping("/registro")
     public String registro() {
         return "registroUsuarioHotel";
     }

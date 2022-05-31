@@ -21,7 +21,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpSession;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -107,7 +106,7 @@ public class UsuarioServicio implements UserDetailsService {
             throw new ErrorServicio("El E-mail del usuario no puede ser nulo.");
         }
 
-        if (clave == null || clave.trim().isEmpty() || clave.length() <= 5) {
+        if (clave == null || clave.trim().isEmpty() || clave.length() <= 5) {//hacer comprobación de igualdad de contraseñas
             throw new ErrorServicio("La clave del usuario no puede ser nula y tiene que tener al menos 6 dígitos.");
         }
 
@@ -138,6 +137,8 @@ public class UsuarioServicio implements UserDetailsService {
 
             GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO_REGISTRADO" /*+ usuario.getRol()*/);
             permisos.add(p1);
+            GrantedAuthority p2 = new SimpleGrantedAuthority("USUARIO_COMUN" /*+ usuario.getRol()*/);
+            permisos.add(p2);
 
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder
                     .currentRequestAttributes();
