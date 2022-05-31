@@ -30,7 +30,7 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.headers().frameOptions().sameOrigin().and()
                 .authorizeRequests()
-                .antMatchers("/usuario/*").hasRole("USUARIO_REGISTRADO")
+               /* .antMatchers("/usuario/*").hasRole("USUARIO_REGISTRADO")*/
                 .antMatchers("/css/*", "/js/*", "/img/*", "/**")
                 .permitAll()
                 .and().formLogin()
