@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
 @Entity
 public class Reserva {
 
@@ -30,8 +31,6 @@ public class Reserva {
 
     @ManyToOne
     private Usuario usuario;
-
-
 
     public Reserva() {
     }

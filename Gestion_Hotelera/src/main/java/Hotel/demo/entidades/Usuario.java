@@ -82,5 +82,4 @@ public class Usuario {
                 + "\nDNI: " + DNI 
                 + "\nE-mail=" + email;
     }
-    
 }
