@@ -6,20 +6,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled=true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public UsuarioServicio usuarioServicio;
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth)throws Exception{
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(usuarioServicio)
                 .passwordEncoder(new BCryptPasswordEncoder());
@@ -30,8 +31,7 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().sameOrigin().and()
                 .authorizeRequests()
 //                .antMatchers("/usuario/*").hasRole("USUARIO_REGISTRADO")//ver el tema del usuario sin registrar
-                .antMatchers("/usuario/*","/css/*", "/js/*", "/img/*", "/**")
-                .permitAll()
+                .antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll()
                 
                 .and().formLogin()
                 .loginPage("/login")
@@ -45,8 +45,13 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .permitAll()
+                
                 .and().csrf()
                 .disable();
     }
 
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/js/**", "/css/**", "/img/**");
+    }
 }

@@ -18,9 +18,6 @@ public class PortalControlador {
         return "index.html";
     }
 
-//    @GetMapping("/registro")
-//    public String registro() {
-//        return "registroUsuarioHotel";
-//    }
+
 
 }
