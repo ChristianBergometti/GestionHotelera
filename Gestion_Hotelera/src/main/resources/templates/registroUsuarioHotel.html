@@ -37,22 +37,26 @@
            <p id="mensaje2"> Welcome to the Eggperience! </p> 
             
            <p id="mensaje3">  Bem-vindo à Eggperience! </p> 
-           <p id="subtitulo" > <strong> Ingresá tus datos</strong> </p>
+           <div class="rectangulo"> </div>
 
+           <h1 id="subtitulo" > <strong> Ingresá tus datos</strong> </h1>
+         
            <form action=""   method="POST">
             <p th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
                 <div class="mb-3">
                    
-                  
-                  <input type="text" class="input1" name="Nombre y Apellido" placeholder="Nombre completo">
-                  
-                  <input type="text" class="input2" name="Correo Electronico" placeholder="Correo electronico">
+                    <input type="text" class="input1" name="Nombre y Apellido" placeholder="Nombre completo">
+          
+                    <input type="text" class="input2" name="Correo Electronico" placeholder="Correo electronico">
+          
+                    <input type="text" class="input3" name="Documento de identidad" placeholder="Documento de identidad">
+                    
+                    <input type="text" class="input4" name="Contraseña1" placeholder="Contraseña">
+                    
+                    <input type="text" class="input5" name="Contraseña2" placeholder="Confirmar contraseña">
+                 
 
-                  <input type="text" class="input3" name="Documento de identidad" placeholder="Documento de identidad">
                   
-                  <input type="text" class="input4" name="Contraseña1" placeholder="Contraseña">
-                  
-                  <input type="text" class="input5" name="Contraseña2" placeholder="Confirmar contraseña">
                 
                 </div>
         
