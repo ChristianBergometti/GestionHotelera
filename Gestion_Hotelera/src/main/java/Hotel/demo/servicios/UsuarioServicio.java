@@ -1,11 +1,9 @@
 package Hotel.demo.servicios;
 
 import Hotel.demo.entidades.Usuario;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import Hotel.demo.errores.ErrorServicio;
 import Hotel.demo.repositorios.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +14,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,7 +38,6 @@ public class UsuarioServicio implements UserDetailsService {
         usuario.setAlta(alta);
 
         usuarioRepositorio.save(usuario);
-
     }
 
     @Transactional
@@ -109,13 +104,11 @@ public class UsuarioServicio implements UserDetailsService {
         if (clave == null || clave.trim().isEmpty() || clave.length() <= 5) {//hacer comprobación de igualdad de contraseñas
             throw new ErrorServicio("La clave del usuario no puede ser nula y tiene que tener al menos 6 dígitos.");
         }
-
     }
 
     public List<Usuario> listarUsuarios() {
 
         return usuarioRepositorio.findAll();
-
     }
 
     public Usuario usuarioPorId(String id) throws ErrorServicio {

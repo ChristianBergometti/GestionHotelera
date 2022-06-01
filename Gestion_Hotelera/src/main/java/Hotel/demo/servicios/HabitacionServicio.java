@@ -31,10 +31,10 @@ public class HabitacionServicio {
         return habitacionRepositorio.findAll();
     }
     
-//    @Transactional(readOnly = true)
-//    public List<Habitacion> buscarPorPrecio(Double precio) {
-//        return habitacionRepositorio.habitacionesPorPrecio(precio);
-//    }
+    @Transactional(readOnly = true)
+    public List<Habitacion> buscarPorPrecio(Double precio) {
+        return habitacionRepositorio.habitacionesPorPrecio(precio);
+    }
     
     @Transactional(readOnly = true)
     public Habitacion buscarPorId(String id) throws ErrorServicio {

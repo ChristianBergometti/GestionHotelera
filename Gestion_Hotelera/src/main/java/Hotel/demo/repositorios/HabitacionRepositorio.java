@@ -17,5 +17,4 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     public List<Habitacion> habitacionesPorPrecio(@Param("precioHabitacion") Double precio);
 
     public List<Habitacion> findByAltaTrue();
-    
 }
