@@ -1,5 +1,4 @@
-
- *{
+*{
 
     margin:0;
     padding: 0;
@@ -14,9 +13,7 @@
     background-position: center;
  }
  body{
-     background-color: 
-     rgba(203, 225, 225, 0.35)
-     ;
+     background-color:  rgba(203, 225, 225, 0.35)
  }
 
 
@@ -85,83 +82,24 @@
 
 
 
- #mensaje{
 
- 
-position: absolute;
-width: 592px;
-height: 237px;
-left: 796px;
-top: 231px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 600;
-font-size: 45px;
-line-height: 53px;
-display: flex;
-align-items: center;
-text-align: center;
-color:#414535;
- }
-
- #mensaje2{
-
-    position: absolute;
-width: 588px;
-height: 180px;
-left: 800px;
-top: 365px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 600;
-font-size: 45px;
-line-height: 53px;
-display: flex;
-align-items: center;
-text-align: center;
-
-color: #414535;;
-
- }
-
- #mensaje3{
-    position: absolute;
-    width: 528px;
-    height: 77px;
-    left: 830px;
-    top: 518px;
-    
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 45px;
-    line-height: 53px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-    color:#414535;
-
- }
 
  #subtitulo{
     position: absolute;
     width: 312px;
     height: 47px;
-    left: 230px;
-    top: 205px;
+    left: 600px;
+    top: 285px;
     
     font-family: 'Roboto';
     font-style: normal;
     
-    font-size: 35px;
+    font-size: 40px;
     line-height: 47px;
     /* identical to box height */
     font-weight: bolder;
     
-    color:#414535;
+    color: #000000;
     
 
  }
@@ -172,8 +110,8 @@ color: #414535;;
     position: absolute;
     width: 350px;
     height: 40px;
-    left: 197px;
-    top: 266px;
+    left: 540px;
+    top: 366px;
     padding: 1rem;
     background: rgba(255, 255, 255, 0.8);
     border: 0.2px solid #000000;
@@ -185,54 +123,14 @@ color: #414535;;
     position: absolute;
     width: 350px;
     height: 40px;
-    left: 197px;
-    top: 333px;
+    left: 540px;
+    top: 433px;
     padding: 1rem;
     background: rgba(255, 255, 255, 0.8);
     border: 0.2px solid #000000;
  }
 
- .input3{
-
-    box-sizing: border-box;
-
-    position: absolute;
-    width: 350px;
-    height: 40px;
-    left: 197px;
-    top: 404px;
-    padding: 1rem;
-    background: rgba(255, 255, 253, 0.8);
-    border: 0.2px solid #000000;
- }
-
- .input4{
-
-    box-sizing: border-box;
-
-    position: absolute;
-    width: 350px;
-    height: 40px;
-    left: 197px;
-    top: 475px;
-    padding: 1rem;
-    background: rgba(255, 255, 253, 0.8);
-    border: 0.2px solid #000000;
- }
-
-  .input5{
-
-    box-sizing: border-box;
-
-    position: absolute;
-    width: 350px;
-    height: 40px;
-    left: 197px;
-    top: 546px;
-    padding: 1rem;
-    background: rgba(255, 255, 253, 0.8);
-    border: 0.2px solid #000000;
- }
+ 
 
  #registr{
 
@@ -241,8 +139,8 @@ color: #414535;;
     position: absolute;
     width: 150px;
     height: 30px;
-    left: 280px;
-    top: 625px;
+    left: 645px;
+    top: 525px;
     
     background: #FFF;
     border-radius: 10px;
@@ -260,39 +158,37 @@ color: #414535;;
    font-weight: bold; 
 
  }
-
  .rectangulo{
 
   
     position: absolute;
 width: 500px;
-height: 575px;
-left: 120px;
-top: 151px;
+height: 450px;
+left: 467px;
+top: 230px;
 
 background:  #fff;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px 4px 4px rgba(0, 0, 0, 0.1);
 border-radius: 7px;
  }
- 
+
  .usuario{
 
     position: absolute;
     width: 70px;
     height: 70px;
-    left: 332px;
-    top: 116px;
+    left: 680px;
+    top: 198px;
     
     
  }
-
- #cuenta{
+  #cuenta{
 
     position: absolute;
     width: 312px;
     height: 47px;
-    left: 245px;
-    top: 675px;
+    left: 590px;
+    top: 622px;
     
     font-family: 'Roboto';
     font-style: normal;
@@ -312,8 +208,8 @@ border-radius: 7px;
     position: absolute;
     width: 312px;
     height: 47px;
-    left: 400px;
-    top: 675px;
+    left: 740px;
+    top: 622px;
     
     font-family: 'Roboto';
     font-style: normal;
@@ -334,4 +230,50 @@ border-radius: 7px;
    
    
    font-weight: bold; 
+  }
+
+  .linea1{
+    position: absolute;
+    width: 160px;
+    height: 0px;
+    left: 540px;
+    top: 587px;
+    
+    border: 1px solid #CACACA;
+
+
+  }
+
+  .linea2{
+
+    
+position: absolute;
+width: 160px;
+height: 0px;
+left: 730px;
+top: 587px;
+
+border: 1px solid #CACACA;
+
+
+
+  }
+
+
+  .circulo{
+
+
+    box-sizing: border-box;
+
+position: absolute;
+width: 10px;
+height: 10px;
+left: 709px;
+top: 582px;
+
+background: #618985;
+border: 1px solid #CACACA;
+border-radius: 1rem;
+
+
   }
