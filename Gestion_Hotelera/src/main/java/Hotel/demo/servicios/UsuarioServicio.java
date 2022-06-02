@@ -1,6 +1,7 @@
 package Hotel.demo.servicios;
 
 import Hotel.demo.entidades.Usuario;
+import Hotel.demo.enums.Rol;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,7 +38,8 @@ public class UsuarioServicio implements UserDetailsService {
         String encriptada = new BCryptPasswordEncoder().encode(clave);
         usuario.setClave(encriptada);
         usuario.setAlta(alta);
-
+        usuario.setRol(Rol.ROL_USER);
+        
         usuarioRepositorio.save(usuario);
     }
 
