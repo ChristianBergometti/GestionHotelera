@@ -15,7 +15,6 @@ public class Habitacion {
     
     @Column (unique = true)
     private String numero;
-    
     private Integer capacidad;
     private Double precio;
     private Boolean alta;

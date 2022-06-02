@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,11 +21,11 @@
         <div class="logo" >Eggperience </div>
         <ul class="menu">
              
-            <li> <a href= "/" >  <strong> Hotel </strong> </a> </li>
+            <li> <a href= "#" >  <strong> Hotel </strong> </a> </li>
             <li> <a href= "#" > <strong>Habitaciones </strong> </a>  </li>
             <li> <a href= "#"> <strong>Reservas</strong> </a></li>
             <li> <a href= "#" > <strong>Ubicación</strong> </a></li>
-            <li><a href= "usuario/registro"> <strong>Registro</strong> </a></li>
+            <li><a href= "#"> <strong>Registro</strong> </a></li>
     
         </ul>
     </nav>
@@ -37,27 +38,37 @@
            <p id="mensaje2"> Welcome to the Eggperience! </p> 
             
            <p id="mensaje3">  Bem-vindo à Eggperience! </p> 
-           <p id="subtitulo" > <strong> Ingresá tus datos</strong> </p>
 
+           <div class="rectangulo"> </div>
+           <img src="../img/add-user.png" class="usuario"  >
+
+           <h1 id="subtitulo" > <strong> Ingresá tus datos</strong> </h1>
+           <p id="cuenta"> ¿Ya estás registrado? </p>
+           <p id="registro"><a href="#"> Ingrese aquí  </a>  </p>
+         
            <form action=""   method="POST">
-            <p th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
+            <p th:if="${error != null}" th:text="${error}" style="color:red;"> </p> 
+          
                 <div class="mb-3">
                    
-                  
-                  <input type="text" class="input1" name="Nombre y Apellido" placeholder="Nombre completo">
-                  
-                  <input type="text" class="input2" name="Correo Electronico" placeholder="Correo electronico">
+                    <input type="text" class="input1" name="NombreCompleto" placeholder="Nombre completo">
+                    
+          
+                    <input type="email" class="input2" name="CorreoElectronico" placeholder="Correo electronico">
+          
+                    <input type="text" class="input3" name="DocumentoDeIdentidad" placeholder="Documento de identidad">
+                    
+                    <input type="password" class="input4" name="Clave1" placeholder="Contraseña">
+                    
+                    <input type="password" class="input5" name="Clave2" placeholder="Confirmar contraseña">
+                    <p class="input6" th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
 
-                  <input type="text" class="input3" name="Documento de identidad" placeholder="Documento de identidad">
                   
-                  <input type="text" class="input4" name="Contraseña1" placeholder="Contraseña">
-                  
-                  <input type="text" class="input5" name="Contraseña2" placeholder="Confirmar contraseña">
                 
                 </div>
         
                   
-                  <button type="button" class="" id="registr"> Registrarme </button>
+                  <button type="submit" class="" id="registr"> Registrarme </button>
               </form>
 
               <div class="scrol"></div>

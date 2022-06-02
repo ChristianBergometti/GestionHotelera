@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,14 +17,15 @@
     
         <header>
             <nav class="nav">
-            <div class="logo" >Eggperience </div>
+           
+                 <a href= "#" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> 
             <ul class="menu">
-                 
+                
                 <li> <a href= "/" >  <strong> Hotel </strong> </a> </li>
                 <li> <a href= "#" > <strong>Habitaciones </strong> </a>  </li>
-                <li> <a href= "reserva"> <strong>Reservas</strong> </a></li>
+                <li> <a href= "#"> <strong>Reservas</strong> </a></li>
                 <li> <a href= "#" > <strong>Ubicación</strong> </a></li>
-                <li><a href= "usuario/registro"> <strong>Registro</strong> </a></li>
+                <li><a href= "/login"> <strong>Ingresar</strong> </a></li>
         
             </ul>
         </nav>
@@ -32,11 +34,46 @@
          
             
         <h2 id="subtitulo">Hotel Eggperience Mendoza</h2>
+       <a href="#"> <img src="../img/usuarioVerde.png" class="usuario"  > </a>
+       <a href="#"> <img src="../img/whatsapp.png" class="whatsapp" > </a>
+       <div class="pagina"> </div>
 
+       <img src="../img/hotelFrente.jpg" class="imag1">
+
+       <a href="#"> <button type="button" class="hotel" id="hotel"> El Hotel </button> </a>
+       <div class="rectangulo"> </div>  
+
+       <img src="../img/hotel comedor 1.png" class="imag2">
+       <img src="../img/pileta.jpg" class="imag3">
+       <img src="../img/interior hotel 1.png"class="imag4">
+
+       <p id="texto1"> El Hotel Eggperience Mendoza es la 
+           propuesta de hospedaje en la zona de Maipú que
+           inspira a sus huéspedes a que se sientan
+           protagonistas en su viaje. Su ubicación estratégica 
+           y exclusiva, dentro del Complejo Arena Maipú, hace 
+           que Eggperience Mendoza sea un punto de partida ideal
+           para recorrer todos los lugares para visitar en Mendoza.</p>
+
+        <img src="../img/habitacionDoble.png" class="imag5">
+        <img src="../img/salaEstar.png" class="imag6">
+        <a href="#"> <button type="button" class="habitacion" id="habitacion"> Habitaciones </button> </a>
+        <p id="texto2">Las habitaciones del Hotel Eggperience Mendoza
+            cuentan con diseño en cada espacio, son  amplias y reflejan
+            en su decoración elementos característicos de la región.</p>
+        
+        <div class="rectangulo2"> </div> 
+        <p id="texto3">Habitacion Doble</p>
+        <p id="texto4">Esta habitacion cuenta con todos los
+             lujos a un excelente costo para que
+             puedas disfrutar tu estadía</p>
+        
          <div class="scrol"></div>
         <script src="../js/menuIndex.js"></script>
-   
 
+     
+   
+   
  
     
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

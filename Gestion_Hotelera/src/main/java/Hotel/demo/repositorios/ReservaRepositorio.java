@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ReservaRepositorio extends JpaRepository<Reserva, String> {
 
-    @Query("SELECT r FROM Reserva r WHERE r.id= :usuario_id")
+    @Query("SELECT r FROM Reserva r WHERE r.usuario.id= :usuario_id")
     List<Reserva> buscarPorIdUsuario(@Param("usuario_id") String idUsuario);
 }
 

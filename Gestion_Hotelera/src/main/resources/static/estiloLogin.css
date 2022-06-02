@@ -1,0 +1,173 @@
+*{
+
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+ }
+
+ header{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+ }
+ body{
+     background-color:  rgba(203, 225, 225, 0.35)
+ }
+
+
+.nav{
+
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content:space-between ; 
+    padding: 25px;
+    transition:all 0.5s ease;
+    position: fixed;
+    font-family: 'Roboto';
+
+}
+.nav.active{
+    background: #FFF;
+    padding: 15px;
+   
+}
+.nav.active .logo,
+.nav.active a{
+    color:black;
+}
+.nav.active a:hover{
+    background: black;
+    color:#FFF;
+}
+
+.logo{
+    font-size: 42px;
+    color:black;
+    font-weight: 400;
+    font-family: 'Playball';
+    
+}
+.menu{
+    display: flex;
+}
+.menu li{
+    list-style: none;
+    margin: 15px
+    
+}
+.menu li a{
+    color:#000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.5 ease;
+}
+
+.menu li a:hover{
+    padding: 5px 10px;
+    background: #618985;
+    color:#FFF;
+   border-radius: 15px;  
+
+}
+
+.scrol{
+    height: 100px;
+}
+
+
+
+
+
+
+
+ #subtitulo{
+    position: absolute;
+    width: 312px;
+    height: 47px;
+    left: 600px;
+    top: 270px;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    
+    font-size: 40px;
+    line-height: 47px;
+    /* identical to box height */
+    font-weight: bolder;
+    
+    color: #000000;
+    
+
+ }
+
+ .input1{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 350px;
+    height: 40px;
+    left: 540px;
+    top: 366px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 0.2px solid #000000;
+ }
+ .input2{
+ 
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 350px;
+    height: 40px;
+    left: 540px;
+    top: 433px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 0.2px solid #000000;
+ }
+
+ 
+
+ #registr{
+
+
+    
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    left: 645px;
+    top: 525px;
+    
+    background: #FFF;
+    border-radius: 10px;
+
+    font-family: 'Roboto';
+    color: black;
+    font-weight: bold;
+ }
+
+ #registr:hover{
+    padding: 2px 10px;
+    background: #618985;
+    color:#FFF;
+   border-radius: 15px; 
+   font-weight: bold; 
+
+ }
+ .rectangulo{
+
+  
+    position: absolute;
+width: 500px;
+height: 365px;
+left: 467px;
+top: 230px;
+
+background:  #fff;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+border-radius: 7px;
+ }

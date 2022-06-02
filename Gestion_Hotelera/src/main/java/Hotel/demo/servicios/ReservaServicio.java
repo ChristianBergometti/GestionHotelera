@@ -33,7 +33,6 @@ public class ReservaServicio {
         reserva.setAlta(true);
         reserva.setPrecio(calcularHospedaje(habitaciones, ingreso, egreso));
         
-        
         reservaRepositorio.save(reserva);
     }
     

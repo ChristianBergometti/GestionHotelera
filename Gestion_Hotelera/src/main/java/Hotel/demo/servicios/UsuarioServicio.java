@@ -1,6 +1,7 @@
 package Hotel.demo.servicios;
 
 import Hotel.demo.entidades.Usuario;
+import Hotel.demo.enums.Rol;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -27,8 +28,9 @@ public class UsuarioServicio implements UserDetailsService {
     private UsuarioRepositorio usuarioRepositorio;
 
     @Transactional
-    public void crearUsuario(String nombre, String DNI, String mail, String clave, boolean alta) throws ErrorServicio {
-        validar(nombre, DNI, mail, clave);
+    public void crearUsuario(String nombre, String DNI, String mail, String clave, String claveVerificacion, boolean alta) throws ErrorServicio {
+        validar(nombre, DNI, mail, clave, claveVerificacion);
+        
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setDNI(DNI);
@@ -36,13 +38,14 @@ public class UsuarioServicio implements UserDetailsService {
         String encriptada = new BCryptPasswordEncoder().encode(clave);
         usuario.setClave(encriptada);
         usuario.setAlta(alta);
-
+        usuario.setRol(Rol.ROL_USER);
+        
         usuarioRepositorio.save(usuario);
     }
 
     @Transactional
-    public void editarUsuario(String id, String nombre, String DNI, String mail, String clave) throws ErrorServicio {
-        validar(nombre, DNI, mail, clave);
+    public void editarUsuario(String id, String nombre, String DNI, String mail, String clave, String claveVerificacion) throws ErrorServicio {
+        validar(nombre, DNI, mail, clave, claveVerificacion);
 
         Optional<Usuario> respuesta = usuarioRepositorio.findById(id);
 
@@ -87,7 +90,7 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
-    public void validar(String nombre, String DNI, String mail, String clave) throws ErrorServicio {
+    public void validar(String nombre, String DNI, String mail, String clave, String claveVerificacion) throws ErrorServicio {
 
         if (nombre == null || nombre.trim().isEmpty()) {
             throw new ErrorServicio("El nombre del usuario no puede ser nulo.");
@@ -101,8 +104,12 @@ public class UsuarioServicio implements UserDetailsService {
             throw new ErrorServicio("El E-mail del usuario no puede ser nulo.");
         }
 
-        if (clave == null || clave.trim().isEmpty() || clave.length() <= 5) {//hacer comprobación de igualdad de contraseñas
+        if (clave == null || clave.trim().isEmpty() || clave.length() <= 5) {
             throw new ErrorServicio("La clave del usuario no puede ser nula y tiene que tener al menos 6 dígitos.");
+        }
+        
+        if (!claveVerificacion.equals(clave)) {
+            throw new ErrorServicio("La claves deben ser iguales.");
         }
     }
 

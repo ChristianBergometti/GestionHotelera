@@ -1,5 +1,6 @@
 package Hotel.demo.entidades;
 
+import Hotel.demo.enums.Rol;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,16 +17,18 @@ public class Usuario {
     private String email;
     private String clave;
     private boolean alta;
-
+    private Rol rol;
+    
     public Usuario() {
     }
 
-    public Usuario(String nombre, String DNI, String email, String clave, boolean alta) {
+    public Usuario(String nombre, String DNI, String email, String clave, boolean alta, Rol rol) {
         this.nombre = nombre;
         this.DNI = DNI;
         this.email = email;
         this.clave = clave;
         this.alta = alta;
+        this.rol = rol;
     }
 
     public String getId() {
@@ -75,6 +78,16 @@ public class Usuario {
     public void setAlta(boolean alta) {
         this.alta = alta;
     }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+    
+    
 
     @Override
     public String toString() {
