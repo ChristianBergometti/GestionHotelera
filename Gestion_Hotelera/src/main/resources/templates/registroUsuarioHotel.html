@@ -18,7 +18,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
     <header>
         <nav class="nav">
-        <div class="logo" >Eggperience </div>
+        <a href= "/" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> 
         <ul class="menu">
              
             <li> <a href= "#" >  <strong> Hotel </strong> </a> </li>
@@ -46,17 +46,16 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
            <p id="cuenta"> ¿Ya estás registrado? </p>
            <p id="registro"><a href="#"> Ingrese aquí  </a>  </p>
          
-           <form action=""   method="POST">
-            <p th:if="${error != null}" th:text="${error}" style="color:red;"> </p> 
+           <form action="/registrar"   method="POST">
           
                 <div class="mb-3">
                    
-                    <input type="text" class="input1" name="NombreCompleto" placeholder="Nombre completo">
+                    <input type="text" class="input1" name="NombreCompleto" placeholder="Nombre completo" th:value="${NombreCompleto}">
                     
           
-                    <input type="email" class="input2" name="CorreoElectronico" placeholder="Correo electronico">
+                    <input type="email" class="input2" name="CorreoElectronico" placeholder="Correo electronico" th:value="${CorreoElectronico}">
           
-                    <input type="text" class="input3" name="DocumentoDeIdentidad" placeholder="Documento de identidad">
+                    <input type="text" class="input3" name="DocumentoDeIdentidad" placeholder="Documento de identidad" th:value="${DocumentoDeIdentidad}">
                     
                     <input type="password" class="input4" name="Clave1" placeholder="Contraseña">
                     

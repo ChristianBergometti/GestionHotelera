@@ -30,7 +30,7 @@ public class UsuarioServicio implements UserDetailsService {
     @Transactional
     public void crearUsuario(String nombre, String DNI, String mail, String clave, String claveVerificacion, boolean alta) throws ErrorServicio {
         validar(nombre, DNI, mail, clave, claveVerificacion);
-        
+
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre);
         usuario.setDNI(DNI);
@@ -39,7 +39,7 @@ public class UsuarioServicio implements UserDetailsService {
         usuario.setClave(encriptada);
         usuario.setAlta(alta);
         usuario.setRol(Rol.ROL_USER);
-        
+
         usuarioRepositorio.save(usuario);
     }
 
@@ -96,18 +96,18 @@ public class UsuarioServicio implements UserDetailsService {
             throw new ErrorServicio("El nombre del usuario no puede ser nulo.");
         }
 
-        if (DNI == null || DNI.trim().isEmpty()) {
-            throw new ErrorServicio("El DNI del usuario no puede ser nulo.");
-        }
-
         if (mail == null || mail.trim().isEmpty()) {
             throw new ErrorServicio("El E-mail del usuario no puede ser nulo.");
         }
 
+        if (DNI == null || DNI.trim().isEmpty()) {
+            throw new ErrorServicio("El DNI del usuario no puede ser nulo.");
+        }
+        
         if (clave == null || clave.trim().isEmpty() || clave.length() <= 5) {
             throw new ErrorServicio("La clave del usuario no puede ser nula y tiene que tener al menos 6 dígitos.");
         }
-        
+
         if (!claveVerificacion.equals(clave)) {
             throw new ErrorServicio("La claves deben ser iguales.");
         }
