@@ -47,7 +47,7 @@ body{
 
 .nav a.logo:hover{        /*agregamos al logo el estilo statico*/
     background: none;
-    color:#FFF;
+    color:black;
     padding: 3.5px 4px;
 }   
 
