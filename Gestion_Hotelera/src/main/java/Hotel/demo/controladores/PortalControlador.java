@@ -18,8 +18,13 @@ public class PortalControlador {
     
     @Autowired
     private UsuarioServicio usuarioServicio;
-
+    
     @GetMapping("/")
+    public String landing() {
+        return "landingHotel.html";
+    }
+    
+    @GetMapping("/index")
     public String index() {
         return "index.html";
     }
@@ -35,9 +40,9 @@ public class PortalControlador {
     }
 
     @PostMapping("/registrar")
-    public String registrar(ModelMap modelo, @RequestParam String NombreCompleto, @RequestParam String CorreoElectronico, @RequestParam String DocumentoDeIdentidad, @RequestParam String Clave1,@RequestParam String Clave2) {
+    public String registrar(ModelMap modelo, @RequestParam String NombreCompleto, @RequestParam String CorreoElectronico, @RequestParam String DocumentoDeIdentidad, @RequestParam String Clave1, @RequestParam String Clave2) {
         try {
-            usuarioServicio.crearUsuario(NombreCompleto, CorreoElectronico, DocumentoDeIdentidad, Clave1, Clave2, true);
+            usuarioServicio.crearUsuario(NombreCompleto, CorreoElectronico, DocumentoDeIdentidad, Clave1, Clave2);
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
             modelo.put("NombreCompleto", NombreCompleto);
