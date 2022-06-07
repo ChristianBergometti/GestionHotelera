@@ -38,7 +38,7 @@ public class UsuarioServicio implements UserDetailsService {
         String encriptada = new BCryptPasswordEncoder().encode(clave);
         usuario.setClave(encriptada);
         usuario.setAlta(true);
-        usuario.setRol(Rol.ROL_USER);
+        usuario.setRol(Rol.ROLE_USER);
 
         usuarioRepositorio.save(usuario);
     }
@@ -103,11 +103,11 @@ public class UsuarioServicio implements UserDetailsService {
         if (DNI == null || DNI.trim().isEmpty()) {
             throw new ErrorServicio("El DNI del usuario no puede ser nulo.");
         }
-        
+
         if (clave == null || clave.trim().isEmpty()) {
             throw new ErrorServicio("La clave no puede ser nula.");
         }
-        
+
         if (clave.length() <= 5) {
             throw new ErrorServicio("La clave debe tener al menos 6 caracteres.");
         }
@@ -138,18 +138,18 @@ public class UsuarioServicio implements UserDetailsService {
         Usuario usuario = usuarioRepositorio.buscarPorEmail(email);
         if (usuario != null) {
             List<GrantedAuthority> permisos = new ArrayList<>();
-
-            GrantedAuthority p1 = new SimpleGrantedAuthority("USUARIO_REGISTRADO" /*+ usuario.getRol()*/);
+//
+            GrantedAuthority p1 = new SimpleGrantedAuthority(usuario.getRol().toString());
             permisos.add(p1);
-            GrantedAuthority p2 = new SimpleGrantedAuthority("USUARIO_COMUN" /*+ usuario.getRol()*/);
-            permisos.add(p2);
+//            GrantedAuthority p2 = new SimpleGrantedAuthority("USUARIO_COMUN" /*+ usuario.getRol()*/);
+//            permisos.add(p2);
 
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder
                     .currentRequestAttributes();
             HttpSession session = attr.getRequest().getSession(true);
             session.setAttribute("usuariosession", usuario);
-
             User user = new User(usuario.getEmail(), usuario.getClave(), permisos);
+            System.out.println(user.toString());
             return user;
         } else {
             return null;

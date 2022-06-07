@@ -30,28 +30,26 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.headers().frameOptions().sameOrigin().and()
                 .authorizeRequests()
-//                .antMatchers("/usuario/*").hasRole("USUARIO_REGISTRADO")//ver el tema del usuario sin registrar
                 .antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll()
-                
+//                                .antMatchers("/usuario/**").hasRole("ROL_USER")//ver el    tema del usuario sin registrar
+
                 .and().formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/logincheck")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .defaultSuccessUrl("/inicio")
+                .usernameParameter("Usuario")
+                .passwordParameter("Contraseña")
+                .defaultSuccessUrl("/usuario/inicioOk")
                 .permitAll()
-                
                 .and().logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .permitAll()
-                
                 .and().csrf()
                 .disable();
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/js/**", "/css/**", "/img/**");
-    }
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/js/**", "/css/**", "/img/**");
+//    }
 }

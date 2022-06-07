@@ -48,14 +48,14 @@
 
 
    <form action="/logincheck"   method="POST">
-    <p th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
         <div class="mb-3">
            
           
             <input type="text" class="input1" name="Usuario" placeholder="Usuario">
                   
             <input type="password" class="input2" name="Contraseña" placeholder="Contraseña">
-        
+    
+            <p class="input3" th:if="${error != null}" th:text="${error}" style="color:red;text-align: center"> </p>
         </div>
 
           

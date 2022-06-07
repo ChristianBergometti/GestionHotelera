@@ -35,7 +35,10 @@ public class PortalControlador {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(@RequestParam(required = false) String error, ModelMap model) {
+        if(error != null){
+            model.put("error", "Nombre de usuario o clave incorrectos.");
+        }
         return "loginHotel";
     }
 
