@@ -44,17 +44,28 @@ public class UsuarioServicio implements UserDetailsService {
     }
 
     @Transactional
-    public void editarUsuario(String id, String nombre, String DNI, String mail, String clave, String claveVerificacion) throws ErrorServicio {
-        validar(nombre, mail, DNI, clave, claveVerificacion);
-
+    public void editarDatosPersonales(String id, String nombre, String DNI) throws ErrorServicio {
         Optional<Usuario> respuesta = usuarioRepositorio.findById(id);
+        validar(nombre, respuesta.get().getEmail(), DNI, respuesta.get().getClave(), respuesta.get().getClave());
 
         if (respuesta.isPresent()) {
             Usuario usuario = respuesta.get();
             usuario.setNombre(nombre);
             usuario.setDNI(DNI);
-            usuario.setEmail(mail);
-            String encriptada = new BCryptPasswordEncoder().encode(clave);
+            usuarioRepositorio.save(usuario);
+        } else {
+            throw new ErrorServicio("No se encontró el usuario solicitado.");
+        }
+    }
+    
+    @Transactional
+    public void editarClave(String id, String clave1, String clave2) throws ErrorServicio {
+        Optional<Usuario> respuesta = usuarioRepositorio.findById(id);
+        validar(respuesta.get().getNombre(),respuesta.get().getEmail(),respuesta.get().getDNI(), clave1, clave2);
+
+        if (respuesta.isPresent()) {
+            Usuario usuario = respuesta.get();
+            String encriptada = new BCryptPasswordEncoder().encode(clave1);
             usuario.setClave(encriptada);
 
             usuarioRepositorio.save(usuario);
