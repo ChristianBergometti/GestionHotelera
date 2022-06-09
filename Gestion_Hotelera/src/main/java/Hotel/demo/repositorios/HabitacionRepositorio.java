@@ -17,4 +17,14 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     public List<Habitacion> habitacionesPorPrecio(@Param("precioHabitacion") Double precio);
 
     public List<Habitacion> findByAltaTrue();
+    
+    /*Necesitamos que la query 
+    1. Descarte las habitaciones relacionadas con una Reserva que coincida con las fechas de ingreso y
+    egreso.
+    2. Descarte las habitaciones cuya alta esté seteada en false
+    3. Liste el resto de las habitaciones
+    
+    
+    @Query("SELECT h FROM Reserva r JOIN Habitacion h WHERE r.habitaciones_id AND BETWEEN ingreso AND egreso")
+    public List<Habitacion> listarPorPeriodo(@Param("ingreso") Date ingreso, @Param("egreso") Date egreso);*/
 }
