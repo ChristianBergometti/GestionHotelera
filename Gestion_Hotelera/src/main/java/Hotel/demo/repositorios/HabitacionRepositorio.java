@@ -24,6 +24,8 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     2. Descarte las habitaciones cuya alta esté seteada en false
     3. Liste el resto de las habitaciones
     
+    @Query(value = "SELECT * FROM usuario WHERE email = :email", nativeQuery = true);
+    
     
     @Query("SELECT h FROM Reserva r JOIN Habitacion h WHERE r.habitaciones_id AND BETWEEN ingreso AND egreso")
     public List<Habitacion> listarPorPeriodo(@Param("ingreso") Date ingreso, @Param("egreso") Date egreso);*/
