@@ -6,13 +6,13 @@ import Hotel.demo.entidades.Usuario;
 import Hotel.demo.errores.ErrorServicio;
 import Hotel.demo.repositorios.HabitacionRepositorio;
 import Hotel.demo.repositorios.ReservaRepositorio;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import static java.time.temporal.ChronoUnit.DAYS;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +22,7 @@ public class ReservaServicio {
 
     @Autowired
     private ReservaRepositorio reservaRepositorio;
-    
+
     @Autowired
     private HabitacionRepositorio habitacionRepositorio;
 
@@ -43,11 +43,11 @@ public class ReservaServicio {
 
     public void validarFechas(Date ingreso, Date egreso) throws ErrorServicio {
         Date hoy = new Date();
-        
+
         if (ingreso.before(hoy) || egreso.before(hoy) || ingreso.equals(hoy) || egreso.equals(hoy)) {
             throw new ErrorServicio("La fechas no pueden ser anteriores a la fecha actual.");
         }
-            
+
         if (diferenciaDeDias(ingreso, egreso) < 2) {
             throw new ErrorServicio("La reserva no puede ser menor a 2 días de hospedaje.");
         }
@@ -108,42 +108,48 @@ public class ReservaServicio {
         return DAYS.between(ingresoHotel, egresoHotel);
     }
 
-    public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
-        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
+    public Date convertirStringADate(String fechaString) throws ParseException {
 
-        if (habitacionesDisponibles.isEmpty()) {
-            throw new ErrorServicio("No hay habitaciones disponibles en el período seleccionado.");
-        } else {
+        Date fechaDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaString);
 
-            List<Habitacion> habitacionesDobles = new ArrayList();
-            List<Habitacion> habitacionesCuadruples = new ArrayList();
-            List<Habitacion> habitacionesSextuples = new ArrayList();
-
-            for (Habitacion habitacion : habitacionesDisponibles) {
-                
-                switch (habitacion.getCapacidad()) {
-                    case 2:
-                        habitacionesDobles.add(habitacion);
-                        break;
-                    case 4:
-                        habitacionesCuadruples.add(habitacion);
-                        break;
-                    case 6:
-                        habitacionesSextuples.add(habitacion);
-                        break;
-                }
-            }
-            
-            List<List<Habitacion>> listaTotalHabitaciones = new ArrayList();
-            listaTotalHabitaciones.add(0,habitacionesDobles);
-            listaTotalHabitaciones.add(1,habitacionesCuadruples);
-            listaTotalHabitaciones.add(2,habitacionesSextuples);
-            
-            
-            return listaTotalHabitaciones;
-        }
-        
-        
+        return fechaDate;
     }
 
+//    public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
+//        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
+//
+//        if (habitacionesDisponibles.isEmpty()) {
+//            throw new ErrorServicio("No hay habitaciones disponibles en el período seleccionado.");
+//        } else {
+//
+//            List<Habitacion> habitacionesDobles = new ArrayList();
+//            List<Habitacion> habitacionesCuadruples = new ArrayList();
+//            List<Habitacion> habitacionesSextuples = new ArrayList();
+//
+//            for (Habitacion habitacion : habitacionesDisponibles) {
+//                
+//                switch (habitacion.getCapacidad()) {
+//                    case 2:
+//                        habitacionesDobles.add(habitacion);
+//                        break;
+//                    case 4:
+//                        habitacionesCuadruples.add(habitacion);
+//                        break;
+//                    case 6:
+//                        habitacionesSextuples.add(habitacion);
+//                        break;
+//                }
+//            }
+//            
+//            List<List<Habitacion>> listaTotalHabitaciones = new ArrayList();
+//            listaTotalHabitaciones.add(0,habitacionesDobles);
+//            listaTotalHabitaciones.add(1,habitacionesCuadruples);
+//            listaTotalHabitaciones.add(2,habitacionesSextuples);
+//            
+//            
+//            return listaTotalHabitaciones;
+//        }
+//        
+//        
+//    }
 }
