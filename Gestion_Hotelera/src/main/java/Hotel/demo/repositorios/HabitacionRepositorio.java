@@ -1,6 +1,7 @@
 package Hotel.demo.repositorios;
 
 import Hotel.demo.entidades.Habitacion;
+import java.util.Date;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -24,9 +25,13 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     2. Descarte las habitaciones cuya alta esté seteada en false
     3. Liste el resto de las habitaciones
     
-    @Query(value = "SELECT * FROM usuario WHERE email = :email", nativeQuery = true);
+    @Query(value = "SELECT * FROM usuario WHERE email = :email", nativeQuery = true);*/
     
-    
-    @Query("SELECT h FROM Reserva r JOIN Habitacion h WHERE r.habitaciones_id AND BETWEEN ingreso AND egreso")
-    public List<Habitacion> listarPorPeriodo(@Param("ingreso") Date ingreso, @Param("egreso") Date egreso);*/
+    @Query(value = "SELECT * FROM habitacion h INNER JOIN reserva r ON r.h.id = h.id"
+            + "WHERE((:ingreso IS NOT BETWEEN r.ingreso AND r.egreso AND "
+            + "(:egreso IS NOT BETWEEN r.ingreso AND r.egreso) AND "
+            + "(:ingreso IS NOT LIKE r.ingreso AND r.egreso) AND "
+            + "(:egreso IS NOT LIKE r.ingreso AND r.egreso))AND "
+            + "(h.alta LIKE true)", nativeQuery = true) 
+    public List<Habitacion> listarPorPeriodo(@Param("ingreso") Date ingreso, @Param("egreso") Date egreso);
 }
