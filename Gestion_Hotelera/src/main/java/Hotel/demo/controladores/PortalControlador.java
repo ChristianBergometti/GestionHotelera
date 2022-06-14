@@ -89,25 +89,26 @@ public class PortalControlador {
     public String fechas(HttpSession session, ModelMap modelo, @RequestParam String Checkin, @RequestParam String Checkout, RedirectAttributes redirectAttrs) throws ParseException {
         Date ingreso = new Date();
         Date egreso = new Date();
-
+        List<List<Habitacion>> listadoDeHabitaciones;
         try {
             ingreso = reservaServicio.convertirStringADate(Checkin);
             egreso = reservaServicio.convertirStringADate(Checkout);
             reservaServicio.validarFechas(ingreso, egreso);
+            listadoDeHabitaciones = reservaServicio.listarHabitacionesDisponibles(ingreso, egreso);
         } catch (ErrorServicio ex) {
-            modelo.put("error", "Verificar que las fechas sean correctas");
+            modelo.put("error", ex.getMessage());
             return "reservaHotel";
         } catch (ParseException ex) {
             modelo.put("error", "Colocar ambas fechas");
             return "reservaHotel";
         }
 
-        return reservas2(modelo, Checkin, Checkout);
+        return reservas2(modelo, Checkin, Checkout, listadoDeHabitaciones);
     }
 
     @GetMapping("/reservas2")
-    public String reservas2(ModelMap model, String ingreso, String egreso) {
-
+    public String reservas2(ModelMap model, String ingreso, String egreso, List<List<Habitacion>> Disponibles) {
+        model.addAttribute("disponibles", Disponibles);
         model.addAttribute("CheckIn", ingreso);
         model.addAttribute("CheckOut", egreso);
 
@@ -116,17 +117,78 @@ public class PortalControlador {
 
     @PostMapping("/personas")
     public String personas(ModelMap modelo, @RequestParam String Checkin, @RequestParam String Checkout,
-            @RequestParam Integer CantidadPersonas, @RequestParam Integer Habitacion2Personas, 
-            @RequestParam Integer Habitacion4Personas, @RequestParam Integer Habitacion6Personas){
+            @RequestParam Integer CantidadPersonas, @RequestParam Integer Habitacion2Personas,
+            @RequestParam Integer Habitacion4Personas, @RequestParam Integer Habitacion6Personas) throws ParseException {
         try {
-                        
+            Date ingreso = reservaServicio.convertirStringADate(Checkin);
+            Date egreso = reservaServicio.convertirStringADate(Checkout);
+            List<List<Habitacion>> listadoDeHabitaciones = reservaServicio.listarHabitacionesDisponibles(ingreso, egreso);
+            List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(listadoDeHabitaciones, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
             reservaServicio.validarCapacidad(CantidadPersonas, habitacionesAReservar);
+            return reservasFinal(modelo, Checkin, Checkout, CantidadPersonas, habitacionesAReservar);
         } catch (ErrorServicio ex) {
+            modelo.put("error", ex.getMessage());
+//            model.addAttribute("disponibles", Disponibles);
+            model.addAttribute("CheckIn", Checkin);
+            model.addAttribute("CheckOut", Checkout);
+            return reservas2(modelo, Checkin, Checkout, listadoDeHabitaciones);
+        } catch (ParseException ex) {
             modelo.put("error", "Verificar que las fechas sean correctas");
-            return "reservaHotel2";
+            return "reservasFinal";
         }
-
-        return reservas2(modelo, Checkin, Checkout);
     }
 
+    @GetMapping("/reservasFinal")
+    public String reservasFinal(ModelMap model, String ingreso, String egreso, Integer CantidadPersonas, List<Habitacion> habitacionesAReservar) {
+        model.addAttribute("CheckIn", ingreso);
+        model.addAttribute("CheckOut", egreso);
+        model.addAttribute("CantidadPersonas", CantidadPersonas);
+        System.out.println(ingreso);
+        System.out.println(egreso);
+        System.out.println("personas:" + CantidadPersonas);
+        Integer habitacion2 = 0;
+        Integer habitacion4 = 0;
+        Integer habitacion6 = 0;
+        Double pagar = 0d;
+        for (int i = 0; i < habitacionesAReservar.size(); i++) {
+            switch (habitacionesAReservar.get(i).getCapacidad()) {
+                case 2:
+                    habitacion2++;
+                    pagar+=habitacionesAReservar.get(i).getPrecio();
+                    break;
+                case 4:
+                    habitacion4++;
+                    pagar+=habitacionesAReservar.get(i).getPrecio();
+                    break;
+                case 6:
+                    habitacion6++;
+                    pagar+=habitacionesAReservar.get(i).getPrecio();
+                    break;
+            }
+        }
+        model.addAttribute("pagar", pagar);
+        model.addAttribute("habitacion2", habitacion2);
+        model.addAttribute("habitacion4", habitacion4);
+        model.addAttribute("habitacion6", habitacion6);
+        return "reservafinal";
+    }
+
+//    @PostMapping("/personas")
+//    public String personas(ModelMap model, String Checkin, String Checkout, Integer CantidadPersonas, List<Habitacion> habitacionesAReservar) throws ParseException {
+//        try {
+//            List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(listadoDeHabitaciones, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
+//            Date ingreso = reservaServicio.convertirStringADate(Checkin);
+//            Date egreso = reservaServicio.convertirStringADate(Checkout);
+//            return reservasFinal(modelo, Checkin, Checkout, CantidadPersonas, habitacionesAReservar);
+//        } catch (ErrorServicio ex) {
+//            modelo.put("error", ex.getMessage());
+////            model.addAttribute("disponibles", Disponibles);
+//            model.addAttribute("CheckIn", Checkin);
+//            model.addAttribute("CheckOut", Checkout);
+//            return reservas2(modelo, Checkin, Checkout, listadoDeHabitaciones);
+//        } catch (ParseException ex) {
+//            modelo.put("error", "Verificar que las fechas sean correctas");
+//            return "reservasFinal";
+//        }
+//    }
 }

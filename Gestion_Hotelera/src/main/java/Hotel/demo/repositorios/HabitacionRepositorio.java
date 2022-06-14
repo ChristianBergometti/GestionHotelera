@@ -28,10 +28,10 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     @Query(value = "SELECT * FROM usuario WHERE email = :email", nativeQuery = true);*/
     
     @Query(value = "SELECT * FROM habitacion h INNER JOIN reserva r ON r.h.id = h.id"
-            + "WHERE((:ingreso IS NOT BETWEEN r.ingreso AND r.egreso AND "
-            + "(:egreso IS NOT BETWEEN r.ingreso AND r.egreso) AND "
-            + "(:ingreso IS NOT LIKE r.ingreso AND r.egreso) AND "
-            + "(:egreso IS NOT LIKE r.ingreso AND r.egreso))AND "
+            + " WHERE((:ingreso NOT BETWEEN r.ingreso AND r.egreso AND "
+            + "(:egreso NOT BETWEEN r.ingreso AND r.egreso) AND "
+            + "(:ingreso NOT LIKE r.ingreso AND r.egreso) AND "
+            + "(:egreso NOT LIKE r.ingreso AND r.egreso))AND "
             + "(h.alta LIKE true)", nativeQuery = true) 
     public List<Habitacion> listarPorPeriodo(@Param("ingreso") Date ingreso, @Param("egreso") Date egreso);
 }

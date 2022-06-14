@@ -46,7 +46,7 @@ public class ReservaServicio {
         Date hoy = new Date();
 
         if (ingreso.before(hoy) || egreso.before(hoy) || ingreso.equals(hoy) || egreso.equals(hoy)) {
-            throw new ErrorServicio("La fechas no pueden ser anteriores a la fecha actual.");
+            throw new ErrorServicio("La fechas no pueden ser anteriores al día de hoy.");
         }
 
         if (diferenciaDeDias(ingreso, egreso) < 2) {
@@ -117,7 +117,8 @@ public class ReservaServicio {
     }
 
     public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
-        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
+        //List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
+        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.findByAltaTrue();
 
         if (habitacionesDisponibles.isEmpty()) {
             throw new ErrorServicio("No hay habitaciones disponibles en el período seleccionado.");

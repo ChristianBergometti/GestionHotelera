@@ -110,9 +110,9 @@ button {
     left: 670px;
     top: -280px;
 
-   }
-   
-   button::before {
+}
+
+button::before {
     content: '';
     display: block;
     position: absolute;
@@ -124,13 +124,13 @@ button {
     background: #65948f;
     background: linear-gradient(90deg, #65948f 20%, #34635e 100%);
     transition: 0.2s;
-   }
-   
-   button .label {
+}
+
+button .label {
     position: relative;
-   }
-   
-   button .icon {
+}
+
+button .icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,19 +141,19 @@ button {
     right: 0;
     opacity: 0;
     transition: 0.4s;
-   }
-   
-   button:hover::before {
+}
+
+button:hover::before {
     height: 100%;
-   }
-   
-   button:hover .icon {
+}
+
+button:hover .icon {
     top: 0;
     opacity: 1;
-   }
+}
 
 
-   .rectangulo{
+.rectangulo{
 
     box-sizing: border-box;
 
@@ -162,183 +162,201 @@ button {
     height: 350px;
     left: 468px;
     top: 200px;
-    
+
     background: #FAFDFD;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 7px;
 
-   }
+}
 
-   /*.label1{      COMO LO PENSAMOS EN UN PRINCIPIO
-    position: absolute;
-    width: 166px;
-    height: 48px;
-    left: 565px;
-    top: 285px;
-    
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 47px;
-    
-    color: #000000;
-
-   }
-
-   .label2{
-    position: absolute;
-    width: 197px;
-    height: 54px;
-    left: 815px;
-    top: 285px;
-    
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 47px;
-    
-    color: #000000;
-
-   }
-
-   .label3{
-    position: absolute;
-    width: 253px;
-    height: 48px;
-    left: 565px;
-    top: 438px;
-    
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 47px;
-    
-    color: #000000;
-
-   }
-
-   .label4{
-    position: absolute;
-    width: 253px;
-    height: 48px;
-    left: 815px;
-    top: 438px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/*.label1{      COMO LO PENSAMOS EN UN PRINCIPIO
+ position: absolute;
+ width: 166px;
+ height: 48px;
+ left: 565px;
+ top: 285px;
  
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 47px;
-    
-    color: #000000;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-style: normal;
+ font-weight: 600;
+ font-size: 18px;
+ line-height: 47px;
+ 
+ color: #000000;
 
-   }
-   .input1{
-    box-sizing: border-box;
+}
 
-    position: absolute;
-    width: 200px;
-    height: 45px;
-    left: 530px;
-    top: 326px;
-    padding: 1rem;
-    
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 5px;
+.label2{
+ position: absolute;
+ width: 197px;
+ height: 54px;
+ left: 815px;
+ top: 285px;
+ 
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-style: normal;
+ font-weight: 600;
+ font-size: 18px;
+ line-height: 47px;
+ 
+ color: #000000;
 
-   }
+}
 
-   .input2{
-    box-sizing: border-box;
+.label3{
+ position: absolute;
+ width: 253px;
+ height: 48px;
+ left: 565px;
+ top: 438px;
+ 
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-style: normal;
+ font-weight: 600;
+ font-size: 18px;
+ line-height: 47px;
+ 
+ color: #000000;
 
-    position: absolute;
-    width: 200px;
-    height: 45px;
-    left: 780px;
-    top: 326px;
-    padding: 1rem;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 5px;
+}
 
-   }
-   .input3{
-    box-sizing: border-box;
+.label4{
+ position: absolute;
+ width: 253px;
+ height: 48px;
+ left: 815px;
+ top: 438px;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-    position: absolute;
-    width: 200px;
-    height: 45px;
-    left: 530px;
-    top: 480px;
-    padding: 1rem;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 5px;
+ font-style: normal;
+ font-weight: 600;
+ font-size: 18px;
+ line-height: 47px;
+ 
+ color: #000000;
 
-   }
+}
+.input1{
+ box-sizing: border-box;
 
-   .input4{
-    box-sizing: border-box;
+ position: absolute;
+ width: 200px;
+ height: 45px;
+ left: 530px;
+ top: 326px;
+ padding: 1rem;
+ 
+ background: #FFFFFF;
+ border: 1px solid #000000;
+ border-radius: 5px;
 
-    position: absolute;
-    width: 200px;
-    height: 45px;
-    left: 780px;
-    top: 480px;
-    padding: 1rem;
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 5px;
+}
 
-   }*/
-   .booking{
+.input2{
+ box-sizing: border-box;
+
+ position: absolute;
+ width: 200px;
+ height: 45px;
+ left: 780px;
+ top: 326px;
+ padding: 1rem;
+ background: #FFFFFF;
+ border: 1px solid #000000;
+ border-radius: 5px;
+
+}
+.input3{
+ box-sizing: border-box;
+
+ position: absolute;
+ width: 200px;
+ height: 45px;
+ left: 530px;
+ top: 480px;
+ padding: 1rem;
+ background: #FFFFFF;
+ border: 1px solid #000000;
+ border-radius: 5px;
+
+}
+
+.input4{
+ box-sizing: border-box;
+
+ position: absolute;
+ width: 200px;
+ height: 45px;
+ left: 780px;
+ top: 480px;
+ padding: 1rem;
+ background: #FFFFFF;
+ border: 1px solid #000000;
+ border-radius: 5px;
+
+}*/
+.booking{
 
     position: absolute;
     width: 60px;
     height: 60px;
     left: 720px;
     top: 167px;
-   }
-  
-   .label1{     
+}
+
+.label1{     
     position: absolute;
     width: 166px;
     height: 48px;
     left: 565px;
     top: 310px;
-    
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 47px;
-    
+
     color: #000000;
 
-   }
+}
 
-   .label2{
+.label2{
     position: absolute;
     width: 197px;
     height: 54px;
     left: 815px;
-    top: 310px;
-    
+    top: 310px; 
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 47px;
-    
+
     color: #000000;
 
-   }
+}
 
-   .input1{
+.label2#error{
+    position: absolute;
+    width: 400px;
+    height: 54px;
+    left: 550px;
+    top: 400px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 47px;
+
+    color: #000000;
+
+}
+
+
+.input1{
     box-sizing: border-box;
 
     position: absolute;
@@ -347,14 +365,14 @@ button {
     left: 530px;
     top: 350px;
     padding: 1rem;
-    
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
 
-   }
+}
 
-   .input2{
+.input2{
     box-sizing: border-box;
 
     position: absolute;
@@ -367,6 +385,6 @@ button {
     border: 1px solid #000000;
     border-radius: 5px;
 
-   }
-   
+}
+
 
