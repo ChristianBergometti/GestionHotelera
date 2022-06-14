@@ -117,7 +117,7 @@ public class ReservaServicio {
     }
 
     public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
-        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
+        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.findByAltaTrue();
 
         if (habitacionesDisponibles.isEmpty()) {
             throw new ErrorServicio("No hay habitaciones disponibles en el período seleccionado.");
