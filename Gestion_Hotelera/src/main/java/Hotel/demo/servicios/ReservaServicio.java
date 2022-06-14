@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import static java.time.temporal.ChronoUnit.DAYS;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -115,41 +116,41 @@ public class ReservaServicio {
         return fechaDate;
     }
 
-//    public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
-//        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
-//
-//        if (habitacionesDisponibles.isEmpty()) {
-//            throw new ErrorServicio("No hay habitaciones disponibles en el período seleccionado.");
-//        } else {
-//
-//            List<Habitacion> habitacionesDobles = new ArrayList();
-//            List<Habitacion> habitacionesCuadruples = new ArrayList();
-//            List<Habitacion> habitacionesSextuples = new ArrayList();
-//
-//            for (Habitacion habitacion : habitacionesDisponibles) {
-//                
-//                switch (habitacion.getCapacidad()) {
-//                    case 2:
-//                        habitacionesDobles.add(habitacion);
-//                        break;
-//                    case 4:
-//                        habitacionesCuadruples.add(habitacion);
-//                        break;
-//                    case 6:
-//                        habitacionesSextuples.add(habitacion);
-//                        break;
-//                }
-//            }
-//            
-//            List<List<Habitacion>> listaTotalHabitaciones = new ArrayList();
-//            listaTotalHabitaciones.add(0,habitacionesDobles);
-//            listaTotalHabitaciones.add(1,habitacionesCuadruples);
-//            listaTotalHabitaciones.add(2,habitacionesSextuples);
-//            
-//            
-//            return listaTotalHabitaciones;
-//        }
-//        
-//        
-//    }
+    public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
+        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
+
+        if (habitacionesDisponibles.isEmpty()) {
+            throw new ErrorServicio("No hay habitaciones disponibles en el período seleccionado.");
+        } else {
+
+            List<Habitacion> habitacionesDobles = new ArrayList();
+            List<Habitacion> habitacionesCuadruples = new ArrayList();
+            List<Habitacion> habitacionesSextuples = new ArrayList();
+
+            for (Habitacion habitacion : habitacionesDisponibles) {
+                
+                switch (habitacion.getCapacidad()) {
+                    case 2:
+                        habitacionesDobles.add(habitacion);
+                        break;
+                    case 4:
+                        habitacionesCuadruples.add(habitacion);
+                        break;
+                    case 6:
+                        habitacionesSextuples.add(habitacion);
+                        break;
+                }
+            }
+            
+            List<List<Habitacion>> listaTotalHabitaciones = new ArrayList();
+            listaTotalHabitaciones.add(0,habitacionesDobles);
+            listaTotalHabitaciones.add(1,habitacionesCuadruples);
+            listaTotalHabitaciones.add(2,habitacionesSextuples);
+            
+            
+            return listaTotalHabitaciones;
+        }
+        
+        
+    }
 }
