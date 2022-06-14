@@ -121,14 +121,14 @@ public class PortalControlador {
             @RequestParam Integer Habitacion4Personas, @RequestParam Integer Habitacion6Personas) throws ParseException {
         try {
             Date ingreso = reservaServicio.convertirStringADate(Checkin);
-            Date egreso = reservaServicio.convertirStringADate(Checkout);
+            Date egreso = reservaServicio.convertirStringADate(Checkout);//PUSE LAS FECHAS PARA UTILIZARLAS EN LOS MÉTODOS DE LISTA SIGUIENTES
             List<List<Habitacion>> listadoDeHabitaciones = reservaServicio.listarHabitacionesDisponibles(ingreso, egreso);
             List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(listadoDeHabitaciones, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
             reservaServicio.validarCapacidad(CantidadPersonas, habitacionesAReservar);
-            return reservasFinal(modelo, Checkin, Checkout, CantidadPersonas, habitacionesAReservar);
+            return reservasFinal(modelo, Checkin, Checkout, CantidadPersonas, habitacionesAReservar);//ENVÍO PARÁMETROS PARA QUE SE CARGUEN EN LA VISTA FINAL
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
-//            model.addAttribute("disponibles", Disponibles);
+//            model.addAttribute("disponibles", Disponibles); FALTA VER EL PORQUÉ, SI SE ACTUALIZA, SE PIERDEN LOS ATRIBUTOS GUARDADOS
             model.addAttribute("CheckIn", Checkin);
             model.addAttribute("CheckOut", Checkout);
             return reservas2(modelo, Checkin, Checkout, listadoDeHabitaciones);
@@ -172,6 +172,8 @@ public class PortalControlador {
         model.addAttribute("habitacion6", habitacion6);
         return "reservafinal";
     }
+    
+    //MÉTODO SIN TERMINAR
 
 //    @PostMapping("/personas")
 //    public String personas(ModelMap model, String Checkin, String Checkout, Integer CantidadPersonas, List<Habitacion> habitacionesAReservar) throws ParseException {
