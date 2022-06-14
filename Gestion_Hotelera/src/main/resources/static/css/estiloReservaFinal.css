@@ -107,12 +107,12 @@ button {
     overflow: hidden;
 
     border-radius: 5px;
-    left: 651px;
-    top: -190px;
+    left: 605px;
+    top: -120px;
 
-   }
-   
-   button::before {
+}
+
+button::before {
     content: '';
     display: block;
     position: absolute;
@@ -124,13 +124,13 @@ button {
     background: #65948f;
     background: linear-gradient(90deg, #65948f 20%, #34635e 100%);
     transition: 0.2s;
-   }
-   
-   button .label {
+}
+
+button .label {
     position: relative;
-   }
-   
-   button .icon {
+}
+
+button .icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,19 +141,19 @@ button {
     right: 0;
     opacity: 0;
     transition: 0.4s;
-   }
-   
-   button:hover::before {
+}
+
+button:hover::before {
     height: 100%;
-   }
-   
-   button:hover .icon {
+}
+
+button:hover .icon {
     top: 0;
     opacity: 1;
-   }
+}
 
 
-   .rectangulo{
+.rectangulo{
 
     box-sizing: border-box;
 
@@ -162,196 +162,276 @@ button {
     height: 475px;
     left: 425px;
     top: 200px;
-    
+
     background: #FAFDFD;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 7px;
 
-   }
+}
 
-   .label1{
+.label1{
     position: absolute;
     width: 370px;
     height: 47px;
     left: 575px;
-    top: 300px;
+    top: 400px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 29px;
     color: #000000;
-   }
-   .label0{
+}
+.label0{
     position: absolute;
-    width: 370px;
+    width: 400px;
     height: 47px;
-    left: 575px;
+    left: 650px;
+    top: 220px;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 29px;
+    color: #000000;
+}
+.monto{
+    position: absolute;
+    width: 600px;
+    height: 47px;
+    left: 600px;
+    top: 260px;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 29px;
+    color: #000000;
+}
+.monto#plata{
+    position: absolute;
+    width: 200px;
+    height: 47px;
+    left: 800px;
     top: 250px;
-    
+    background: none;
+    border: 0px solid #000000;
+    border-radius: 0px;
+    font-size: 20px;
+    font-weight: 500;
+    box-sizing: none;
+}
+.label0#ingreso{
+    position: absolute;
+    width: 400px;
+    height: 47px;
+    left: 580px;
+    top: 300px;
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 29px;
-    
     color: #000000;
-          
-    
+}
+.label0#egreso{
+    position: absolute;
+    width: 400px;
+    height: 47px;
+    left: 850px;
+    top: 300px;
 
-   }
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 29px;
+    color: #000000;
+}
 
-   .label2{
+.label2{
     position: absolute;
     width: 198px;
     height: 84px;
     left: 480px;
-    top: 419px;
-    
+    top: 460px;
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 29px;
-    
+
     color: #000000;
-    
 
-   }
 
-   .label3{
+}
+
+.label3{
     position: absolute;
     width: 186px;
     height: 93px;
     left: 680px;
-    top: 419px;
-    
+    top: 460px;
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 29px;
-    
+
     color: #000000;
-    
 
-   }
 
-   .label4{
+}
+
+.label4{
     position: absolute;
     width: 188px;
     height: 88px;
     left: 905px;
-    top: 419px;
-    
+    top: 460px;
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 29px;
-    
-    color: #000000;
-    
 
-   }
-   .input1{
+    color: #000000;
+
+
+}
+.input1{
     box-sizing: border-box;
 
     position: absolute;
     width: 180px;
     height: 28px;
     left: 778px;
-    top: 301px;
+    top: 400px;
     padding: 1rem;
-    
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
 
-    
 
-   }
 
-   .input2{
+}
+
+.input2{
     box-sizing: border-box;
 
     position: absolute;
     width: 122px;
     height: 34px;
     left: 480px;
-    top: 460px;
-   
+    top: 500px;
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     padding-left: 1rem;
 
-   
 
-   }
-   .input3{
+
+}
+.input3{
     box-sizing: border-box;
 
     position: absolute;
     width: 122px;
     height: 34px;
     left: 696px;
-    top: 460px;
-   
+    top: 500px;
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     padding-left: 1rem;
 
-   }
-   .input3#error{
+}
+.input3#error{
     box-sizing: none;
 
     position: absolute;
     width: 122px;
     height: 34px;
     left: 696px;
-    top: 480px;
-   
+    top: 600px;
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     padding-left: 1rem;
 
-   }
+}
 
-
-   .input4{
+.fechaIn{
     box-sizing: border-box;
-  
+    position: absolute;
+    width: 140px;
+    height: 34px;
+    left: 550px;
+    top: 340px;
+    padding: 1rem;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 5px;
+
+}
+.fechaOut{
+    box-sizing: border-box;
+    position: absolute;
+    width: 140px;
+    height: 34px;
+    left: 820px;
+    top: 340px;
+    padding: 1rem;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 5px;
+
+}
+
+
+.input4{
+    box-sizing: border-box;
+
     position: absolute;
     width: 122px;
     height: 34px;
     left: 915px;
-    top: 460px;
-    
+    top: 500px;
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     padding-left: 1rem;
-   }
+}
 
-   .booking{
+.booking{
 
     position: absolute;
     width: 60px;
     height: 60px;
     left: 720px;
-    top: 167px;
-   }
+    top: 150px;
+}
 
 
-    select option {
-        z-index: 1000;
-        font-size: 16px;
-        font-weight: 500;
+select option {
+    z-index: 1000;
+    font-size: 16px;
+    font-weight: 500;
 
-    }
+}
 

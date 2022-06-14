@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @PreAuthorize("hasAnyRole('ROLE_USER')")
 @RequestMapping("/usuario")
-public class UsuarioControlador {
+public class UsuarioControlador{
 
     @Autowired
     private UsuarioServicio usuarioServicio;
@@ -32,12 +32,13 @@ public class UsuarioControlador {
     }
 
     @GetMapping("/index_logueado")
-    public String index_logueado(HttpSession session) {
+    public String indexLogueado(HttpSession session, ModelMap model) {
         Usuario login = (Usuario) session.getAttribute("usuariosession");
+        model.put("nombreUsuario", login.getNombre());
         if (login == null) {
             return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
         }
-        return "index_logueado";
+        return "index";
     }
 
     @GetMapping("/editarPerfil")
