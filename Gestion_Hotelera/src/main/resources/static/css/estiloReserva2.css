@@ -254,22 +254,27 @@ button {
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+
     
 
    }
 
-   .input2{
+   #input2{
     box-sizing: border-box;
 
     position: absolute;
     width: 122px;
-    height: 28px;
+    height: 34px;
     left: 480px;
     top: 460px;
-    padding: 1rem;
+   
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
+    padding-left: 1rem;
+
    
 
    }
@@ -278,29 +283,30 @@ button {
 
     position: absolute;
     width: 122px;
-    height: 28px;
+    height: 34px;
     left: 696px;
     top: 460px;
-    padding: 1rem;
+   
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
+    padding-left: 1rem;
 
    }
 
    .input4{
     box-sizing: border-box;
-    padding: 1rem;
+  
     position: absolute;
     width: 122px;
-    height: 28px;
+    height: 34px;
     left: 915px;
     top: 460px;
     
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
-
+    padding-left: 1rem;
    }
 
    .booking{
@@ -311,3 +317,12 @@ button {
     left: 720px;
     top: 167px;
    }
+
+
+    select option {
+        z-index: 1000;
+        font-size: 16px;
+        font-weight: 500;
+
+    }
+
