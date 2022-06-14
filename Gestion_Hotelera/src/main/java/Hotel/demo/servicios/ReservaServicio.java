@@ -108,7 +108,7 @@ public class ReservaServicio {
         return DAYS.between(ingresoHotel, egresoHotel);
     }
 
-    public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
+    /*public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
         List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
 
         if (habitacionesDisponibles.isEmpty()) {
@@ -144,6 +144,6 @@ public class ReservaServicio {
         }
         
         
-    }
+    }*/
 
 }
