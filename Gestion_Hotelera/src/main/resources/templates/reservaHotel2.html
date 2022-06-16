@@ -46,37 +46,21 @@
 
         <img src="../img/booking.png" class="booking"  >
         <form action="/personas"   method="POST">
-            
-            
-            <input type="date" name="Checkin" placeholder="" th:value="${CheckIn}">
-            <input type="date"  name="Checkout" placeholder="" th:value="${CheckOut}">
+
+
+                <input type="text" hidden  name="idReserva" th:value="${idReserva}" >
             <div class="mb-3">
                 <label for="" class="label1">Cantidad de personas</label>
-                <input type="number" class="input1" name="CantidadPersonas" placeholder="" min="1" max="36" th:value="${CantidadPersonas}">
-
+                <input type="number" class="input1" name="CantidadPersonas" placeholder="" min="1" th:max="${CantidadPersonas}" >
+                <!--//probar el max con th:value para limitar--> 
                 <label for="" class="label2">Habitación doble</label>
-                <select class="input2" name="Habitacion2Personas" >
-                    <option value=0> 0 </option>   
-                    <option value=1> 1  </option>
-                    <option value=2> 2  </option>
-                    <option value=3> 3 </option>
-                </select>
-
+                <input type="number" class="input2" name="Habitacion2Personas" placeholder="" value ="0"  th:max="${habitacion2Personas}" >
+                <!--th:max es la etiqueta THYMELEAF que etea el MÁXIMO de estos INPUTS-->
                 <label for="" class="label3">Habitación cuádruple</label>
-                <select class="input3" name="Habitacion4Personas" >
-                    <option value=0> 0 </option>   
-                    <option value=1> 1  </option>
-                    <option value=2> 2  </option>
-                    <option value=3> 3 </option>
-                </select>
+                <input type="number" class="input3" name="Habitacion4Personas" placeholder="" value ="0" th:max="${habitacion4Personas}" >
 
                 <label for="" class="label4">Habitación séxtuple</label>
-                <select class="input4" name="Habitacion6Personas" >
-                    <option value="0"> 0 </option>   
-                    <option value="1"> 1  </option>
-                    <option value="2"> 2  </option>
-                    <option value="3"> 3 </option>
-                </select>
+                <input type="number" class="input4" name="Habitacion6Personas" placeholder="" value ="0" th:max="${habitacion6Personas}" >
 
 
                 <p class="input3" id="error" th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
@@ -84,12 +68,12 @@
             </div>
 
 
-            <button type="submit">
-                <span class="label">siguiente</span>
-                <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
-                </span>
-            </button>
+        <input type="submit" name="reservaForm" value="buscar">
+            <span class="label">buscar</span>
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+            </span>
+          </input>
 
         </form>
 
