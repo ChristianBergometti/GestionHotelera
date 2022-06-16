@@ -49,6 +49,9 @@
 
 
                 <input type="text" hidden  name="idReserva" th:value="${idReserva}" >
+                <input type="date" name="Checkin"  th:value="${CheckIn}">
+                <input type="date" name="Checkout" th:value="${CheckOut}">
+                
             <div class="mb-3">
                 <label for="" class="label1">Cantidad de personas</label>
                 <input type="number" class="input1" name="CantidadPersonas" placeholder="" min="1" th:max="${CantidadPersonas}" >
