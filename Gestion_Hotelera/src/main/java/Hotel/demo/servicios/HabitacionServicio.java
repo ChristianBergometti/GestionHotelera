@@ -3,6 +3,7 @@ package Hotel.demo.servicios;
 import Hotel.demo.entidades.Habitacion;
 import Hotel.demo.errores.ErrorServicio;
 import Hotel.demo.repositorios.HabitacionRepositorio;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,4 +48,34 @@ public class HabitacionServicio {
         }
     }
     
+    public List<Habitacion> crearListaHabitaciones(List<List<Habitacion>> listaDeListasHabitacion, Integer habitacion2Personas, Integer habitacion4Personas, Integer habitacion6Personas) {
+        
+        List<Habitacion> habitaciones = new ArrayList();
+        
+        for (int i = 0; i < habitacion2Personas; i++) {
+            habitaciones.add(listaDeListasHabitacion.get(0).get(i));
+        }
+        
+        for (int i = 0; i < habitacion4Personas; i++) {
+            habitaciones.add(listaDeListasHabitacion.get(1).get(i));
+        }
+        
+        for (int i = 0; i < habitacion6Personas; i++) {
+            habitaciones.add(listaDeListasHabitacion.get(2).get(i));
+        }
+        
+        return habitaciones;
+    }
+    
+    public Integer calcularCantidadMaximaDePersonas(List<List<Habitacion>> listaDeListasHabitacion) {
+        Integer capacidadMaxima = 0;
+        
+        for (List<Habitacion>  lista : listaDeListasHabitacion) {
+            for (Habitacion habitacion : lista) {
+                capacidadMaxima += habitacion.getCapacidad();
+            }
+        }
+        
+        return capacidadMaxima;
+    }
 }

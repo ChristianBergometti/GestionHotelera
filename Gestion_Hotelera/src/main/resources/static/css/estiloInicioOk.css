@@ -79,6 +79,16 @@ body{
     transition: all 0.5 ease;
 }
 
+.menu li a{
+    color:#000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.5 ease;
+}
+.menu li a div{
+    background-color: rgba(255.255.255.0);
+}
+
 .menu li a:hover{
     padding: 5px 10px;
     background: #618985;
@@ -103,15 +113,35 @@ body{
     height: 47px;
     left: 600px;
     top: 285px;
-
+    
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
-
     font-size: 40px;
     line-height: 47px;
     /* identical to box height */
     font-weight: 650;
+    
+    color: #000000;
 
+
+}
+
+
+#subtitulo2{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    left: 645px;
+    top: 350px;
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    
+    font-size: 40px;
+    line-height: 47px;
+    /* identical to box height */
+    font-weight: 650;
+    
     color: #000000;
 
 
@@ -143,19 +173,12 @@ body{
     border: 0.2px solid #000000;
 }
 
-.input3{
-
-    position: absolute;
-    width: 350px;
-    height: 40px;
-    left: 540px;
-    top: 466px;
-    padding: 1rem;
-}
-
 
 
 #registr{
+
+
+
     position: absolute;
     width: 150px;
     height: 30px;
