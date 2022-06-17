@@ -66,4 +66,16 @@ public class HabitacionServicio {
         
         return habitaciones;
     }
+    
+    public Integer calcularCantidadMaximaDePersonas(List<List<Habitacion>> listaDeListasHabitacion) {
+        Integer capacidadMaxima = 0;
+        
+        for (List<Habitacion>  lista : listaDeListasHabitacion) {
+            for (Habitacion habitacion : lista) {
+                capacidadMaxima += habitacion.getCapacidad();
+            }
+        }
+        
+        return capacidadMaxima;
+    }
 }
