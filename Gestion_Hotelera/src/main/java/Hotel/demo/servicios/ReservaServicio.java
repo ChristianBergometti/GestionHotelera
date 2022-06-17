@@ -154,4 +154,19 @@ public class ReservaServicio {
         
         
     }
+    
+    public List<Object> convertir2StringADates(String checkin, String checkout) throws ParseException {
+        
+        List<Object> fechas = new ArrayList();
+        
+        Date ingreso = new SimpleDateFormat("yyyy-MM-dd").parse(checkin);
+        Date egreso = new SimpleDateFormat("yyyy-MM-dd").parse(checkout);
+        
+        fechas.add(0,ingreso);
+        fechas.add(1,egreso);
+        fechas.add(2,checkin);
+        fechas.add(3,checkout);
+        
+        return fechas;
+    }
 }
