@@ -1,0 +1,535 @@
+*{
+
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+header{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+body{
+    background-color:  rgba(203, 225, 225, 0.35)
+}
+
+
+.nav{
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content:space-between ; 
+    padding: 25px;
+    transition:all 0.5s ease;
+    position: fixed;
+    font-family: 'Roboto';
+    z-index: 1000;
+
+}
+.nav.active{
+    background: #FFF;
+    padding: 15px;
+
+}
+.nav.active .logo,
+.nav.active a{
+    color:black;
+}
+.nav.active a:hover{
+    background: black;
+    color:#FFF;
+}
+
+.nav a.logo:hover{        /*agregamos al logo el estilo statico*/
+    background: none;
+    color:black;
+    padding: 3.5px 4px;
+}   
+
+.nav.active  a.logo:hover{   /*agregamos al logo el estilo activo*/
+    background: none;
+    color:black;
+    padding: 3.5px 4px;
+}
+
+.logo{
+    font-size: 42px;
+    color:black;
+    font-weight: 400;
+    font-family: 'Playball';
+
+}
+.menu{
+    display: flex;
+}
+.menu li{
+    list-style: none;
+    margin: 15px
+
+}
+.menu li a{
+    color:#000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.5 ease;
+}
+
+.menu li a:hover{
+    padding: 5px 10px;
+    background: #618985;
+    color:#FFF;
+    border-radius: 15px;  
+
+}
+
+/*.scrol{
+
+    height: 100px;
+}*/
+
+
+/* From uiverse.io by @mateusneves */
+button {
+    position: relative;
+    font-size: 14px;
+    letter-spacing: 3px;
+    height: 3em;
+    padding: 0 3em;
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #71a1a1;
+    color: #fff;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    border-radius: 5px;
+    left: 670px;
+    top: -280px;
+
+}
+
+button::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+    height: 0px;
+    width: 100%;
+    background: #65948f;
+    background: linear-gradient(90deg, #65948f 20%, #34635e 100%);
+    transition: 0.2s;
+}
+
+button .label {
+    position: relative;
+}
+
+button .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3em;
+    width: 3em;
+    position: absolute;
+    top: 3em;
+    right: 0;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+button:hover::before {
+    height: 100%;
+}
+
+button:hover .icon {
+    top: 0;
+    opacity: 1;
+}
+
+
+.rectangulo{
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 580px;
+    height: 350px;
+    left: 468px;
+    top: 200px;
+
+    background: #FAFDFD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+
+}
+
+/*.label1{      COMO LO PENSAMOS EN UN PRINCIPIO
+ position: absolute;
+ width: 166px;
+ height: 48px;
+ left: 565px;
+ top: 285px;
+ 
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-style: normal;
+ font-weight: 600;
+ font-size: 18px;
+ line-height: 47px;
+ 
+ color: #000000;
+
+}
+
+.label2{
+ position: absolute;
+ width: 197px;
+ height: 54px;
+ left: 815px;
+ top: 285px;
+ 
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-style: normal;
+ font-weight: 600;
+ font-size: 18px;
+ line-height: 47px;
+ 
+ color: #000000;
+
+}
+
+.label3{
+ position: absolute;
+ width: 253px;
+ height: 48px;
+ left: 565px;
+ top: 438px;
+ 
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ font-style: normal;
+ font-weight: 600;
+ font-size: 18px;
+ line-height: 47px;
+ 
+ color: #000000;
+
+}
+
+.label4{
+ position: absolute;
+ width: 253px;
+ height: 48px;
+ left: 815px;
+ top: 438px;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+ font-style: normal;
+ font-weight: 600;
+ font-size: 18px;
+ line-height: 47px;
+ 
+ color: #000000;
+
+}
+.input1{
+ box-sizing: border-box;
+
+ position: absolute;
+ width: 200px;
+ height: 45px;
+ left: 530px;
+ top: 326px;
+ padding: 1rem;
+ 
+ background: #FFFFFF;
+ border: 1px solid #000000;
+ border-radius: 5px;
+
+}
+
+.input2{
+ box-sizing: border-box;
+
+ position: absolute;
+ width: 200px;
+ height: 45px;
+ left: 780px;
+ top: 326px;
+ padding: 1rem;
+ background: #FFFFFF;
+ border: 1px solid #000000;
+ border-radius: 5px;
+
+}
+.input3{
+ box-sizing: border-box;
+
+ position: absolute;
+ width: 200px;
+ height: 45px;
+ left: 530px;
+ top: 480px;
+ padding: 1rem;
+ background: #FFFFFF;
+ border: 1px solid #000000;
+ border-radius: 5px;
+
+}
+
+.input4{
+ box-sizing: border-box;
+
+ position: absolute;
+ width: 200px;
+ height: 45px;
+ left: 780px;
+ top: 480px;
+ padding: 1rem;
+ background: #FFFFFF;
+ border: 1px solid #000000;
+ border-radius: 5px;
+
+}*/
+.booking{
+
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 720px;
+    top: 167px;
+}
+
+.label1{     
+    position: absolute;
+    width: 166px;
+    height: 48px;
+    left: 565px;
+    top: 310px;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 47px;
+
+    color: #000000;
+
+}
+
+.label2{
+    position: absolute;
+    width: 197px;
+    height: 54px;
+    left: 815px;
+    top: 310px; 
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 47px;
+
+    color: #000000;
+
+}
+
+.label2#error{
+    position: absolute;
+    width: 400px;
+    height: 54px;
+    left: 550px;
+    top: 400px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 47px;
+
+    color: #000000;
+
+}
+
+
+.input1{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    left: 530px;
+    top: 350px;
+    padding: 1rem;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 5px;
+
+}
+
+.input2{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 200px;
+    height: 45px;
+    left: 780px;
+    top: 350px;
+    padding: 1rem;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 5px;
+
+<<<<<<< HEAD
+}
+=======
+   }
+   #foot{
+
+    position: absolute;
+    width: 1650px;
+    height: 109px;
+    left: 0px;
+    top: 700px;
+
+    background:  #6c7a79;
+   }
+
+   #eggp{
+    position: absolute;
+    width: 208px;
+    height: 35px;
+    left: 31px;
+    top: 725px;
+    
+    font-family: 'Playball';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 40px;
+    
+    color:   rgba(240, 238, 238, 0.527);
+   }
+   #by{
+    position: absolute;
+    width: 171px;
+    height: 24px;
+    left: 92px;
+    top: 755px;
+    
+    font-family: 'Playball';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+    
+    
+    color: rgba(240, 238, 238, 0.527);
+
+   }
+
+   #derechos{
+    position: absolute;
+    width: 359px;
+    height: 19px;
+    left: 1120px;
+    top: 740px;
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: rgba(240, 238, 238, 0.822);
+
+   }
+
+   /*botones del footer*/
+ 
+   .insta{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 260px;
+    top:745px;
+
+   }
+
+   .face{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 335px;
+    top:745px;
+    z-index: 1000;
+   }
+
+   .what{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 405px;
+    top:745px;
+
+
+   }
+
+   .what {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  .what:hover, .what:focus, .what:active {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  }
+
+  .insta {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  .insta:hover, .insta:focus, .insta:active {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  }
+  .face {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  .face:hover, .face:focus, .face:active {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  }
+>>>>>>> Gabriel
+
+
