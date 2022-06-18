@@ -74,10 +74,7 @@ public class PortalControlador {
         return "Habitaciones";
     }
 
-    @GetMapping("/reservas")
-    public String reservas(ModelMap model) {
-        return "reservaHotel";
-    }
+
 
     @PostMapping("/fechas")
     public String fechas(ModelMap modelo, @RequestParam String Checkin, @RequestParam String Checkout) throws ParseException {
