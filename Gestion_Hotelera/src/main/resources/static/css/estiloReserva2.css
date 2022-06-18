@@ -110,9 +110,9 @@ button {
     left: 651px;
     top: -190px;
 
-   }
-   
-   button::before {
+}
+
+button::before {
     content: '';
     display: block;
     position: absolute;
@@ -124,13 +124,13 @@ button {
     background: #65948f;
     background: linear-gradient(90deg, #65948f 20%, #34635e 100%);
     transition: 0.2s;
-   }
-   
-   button .label {
+}
+
+button .label {
     position: relative;
-   }
-   
-   button .icon {
+}
+
+button .icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,19 +141,19 @@ button {
     right: 0;
     opacity: 0;
     transition: 0.4s;
-   }
-   
-   button:hover::before {
+}
+
+button:hover::before {
     height: 100%;
-   }
-   
-   button:hover .icon {
+}
+
+button:hover .icon {
     top: 0;
     opacity: 1;
-   }
+}
 
 
-   .rectangulo{
+.rectangulo{
 
     box-sizing: border-box;
 
@@ -162,86 +162,86 @@ button {
     height: 475px;
     left: 425px;
     top: 200px;
-    
+
     background: #FAFDFD;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), inset 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 7px;
 
-   }
+}
 
-   .label1{
+.label1{
     position: absolute;
     width: 370px;
     height: 47px;
     left: 575px;
     top: 300px;
-    
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 29px;
-    
+
     color: #000000;
-          
-    
 
-   }
 
-   .label2{
+
+}
+
+.label2{
     position: absolute;
     width: 198px;
     height: 84px;
     left: 480px;
     top: 419px;
-    
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 29px;
-    
+
     color: #000000;
-    
 
-   }
 
-   .label3{
+}
+
+.label3{
     position: absolute;
     width: 186px;
     height: 93px;
     left: 680px;
     top: 419px;
-    
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 29px;
-    
+
     color: #000000;
-    
 
-   }
 
-   .label4{
+}
+
+.label4{
     position: absolute;
     width: 188px;
     height: 88px;
     left: 905px;
     top: 419px;
-    
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 29px;
-    
-    color: #000000;
-    
 
-   }
-   .input1{
+    color: #000000;
+
+
+}
+.input1{
     box-sizing: border-box;
 
     position: absolute;
@@ -250,18 +250,18 @@ button {
     left: 778px;
     top: 301px;
     padding: 1rem;
-    
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
 
-    
 
-   }
 
-   #input2{
+}
+
+.input2{
     box-sizing: border-box;
 
     position: absolute;
@@ -269,16 +269,16 @@ button {
     height: 34px;
     left: 480px;
     top: 460px;
-   
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     padding-left: 1rem;
 
-   
 
-   }
-   .input3{
+
+}
+.input3{
     box-sizing: border-box;
 
     position: absolute;
@@ -286,47 +286,62 @@ button {
     height: 34px;
     left: 696px;
     top: 460px;
-   
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     padding-left: 1rem;
 
-   }
+}
 
-   .input4{
+.input3#error{
+
+    position: absolute;
+    width: 400px;
+    height: 34px;
+    left: 550px;
+    top: 495px;
+    text-align: center;
+    background:transparent;
+    border: 0px;
+    border-radius: 5px;
+    padding-left: 1rem;
+
+}
+
+.input4{
     box-sizing: border-box;
-  
+
     position: absolute;
     width: 122px;
     height: 34px;
     left: 915px;
     top: 460px;
-    
+
     background: #FFFFFF;
     border: 1px solid #000000;
     border-radius: 5px;
     padding-left: 1rem;
-   }
+}
 
-   .booking{
+.booking{
 
     position: absolute;
     width: 60px;
     height: 60px;
     left: 720px;
     top: 167px;
-   }
+}
 
 
-    select option {
-        z-index: 1000;
-        font-size: 16px;
-        font-weight: 500;
+select option {
+    z-index: 1000;
+    font-size: 16px;
+    font-weight: 500;
 
-    }
+}
 
-    
+
 #foot{
 
     position: absolute;
@@ -336,82 +351,82 @@ button {
     top: 800px;
 
     background:  #6c7a79;
-   }
+}
 
-   #eggp{
+#eggp{
     position: absolute;
     width: 208px;
     height: 35px;
     left: 31px;
     top: 825px;
-    
+
     font-family: 'Playball';
     font-style: normal;
     font-weight: 400;
     font-size: 26px;
     line-height: 40px;
-    
+
     color:   rgba(240, 238, 238, 0.527);
-   }
-   #by{
+}
+#by{
     position: absolute;
     width: 171px;
     height: 24px;
     left: 92px;
     top: 855px;
-    
+
     font-family: 'Playball';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 30px;
     /* identical to box height */
-    
-    
+
+
     color: rgba(240, 238, 238, 0.527);
 
-   }
+}
 
-   #derechos{
+#derechos{
     position: absolute;
     width: 359px;
     height: 19px;
     left: 1120px;
     top: 840px;
-    
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
     /* identical to box height */
-    
-    
+
+
     color: rgba(240, 238, 238, 0.822);
 
-   }
+}
 
-   /*botones del footer*/
- 
-   .insta{
+/*botones del footer*/
+
+.insta{
     position: absolute;
     width: 30px;
     height: 30px;
     left: 260px;
     top:845px;
 
-   }
+}
 
-   .face{
+.face{
     position: absolute;
     width: 30px;
     height: 30px;
     left: 335px;
     top:845px;
     z-index: 1000;
-   }
+}
 
-   .what{
+.what{
     position: absolute;
     width: 30px;
     height: 30px;
@@ -419,9 +434,9 @@ button {
     top:845px;
 
 
-   }
+}
 
-   .what {
+.what {
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -429,15 +444,15 @@ button {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
-  }
-  .what:hover, .what:focus, .what:active {
+}
+.what:hover, .what:focus, .what:active {
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
     -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
     transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  }
+}
 
-  .insta {
+.insta {
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -445,14 +460,14 @@ button {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
-  }
-  .insta:hover, .insta:focus, .insta:active {
+}
+.insta:hover, .insta:focus, .insta:active {
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
     -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
     transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  }
-  .face {
+}
+.face {
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -460,11 +475,11 @@ button {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
-  }
-  .face:hover, .face:focus, .face:active {
+}
+.face:hover, .face:focus, .face:active {
     -webkit-transform: scale(0.8);
     transform: scale(0.8);
     -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
     transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  }
+}
 
