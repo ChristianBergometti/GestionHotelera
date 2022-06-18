@@ -62,7 +62,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
              <label for="" class="label4">Personas</label>
             <input type="number" class="input4" name="Personas" placeholder="" th:value="${Personas}" > -->
             
-            <p th:if="${exito != null}" th:text="${exito}" style="color:rgb(142, 240, 76);"></p>
+            <p class="label2" id="error" th:if="${exito != null}" th:text="${exito}" style="color:rgb(142, 240, 76);"></p>
             <p class="label2" id="error" th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
 
         </div>
