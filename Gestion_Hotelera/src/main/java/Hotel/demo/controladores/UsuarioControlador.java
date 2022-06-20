@@ -32,7 +32,7 @@ public class UsuarioControlador {
     private UsuarioServicio usuarioServicio;
 
     @GetMapping("/inicioOk")
-    public String inicioOk(HttpSession session,ModelMap model) {
+    public String inicioOk(HttpSession session, ModelMap model) {
         Usuario login = (Usuario) session.getAttribute("usuariosession");
         model.put("nombreUsuario", login.getNombre());
         if (login == null) {
@@ -194,11 +194,11 @@ public class UsuarioControlador {
             List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
             List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(habitacionesDisponibles, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
             reservaServicio.validarCapacidad(CantidadPersonas, habitacionesAReservar);
-            return reservasFinal(session,modelo, fechas, CantidadPersonas, habitacionesAReservar, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
+            return reservasFinal(session, modelo, fechas, CantidadPersonas, habitacionesAReservar, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
             List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
-            return reservas2(session,modelo, fechas, habitacionesDisponibles);
+            return reservas2(session, modelo, fechas, habitacionesDisponibles);
         }
     }
 
@@ -214,5 +214,25 @@ public class UsuarioControlador {
         model.addAttribute("habitacion6", Habitacion6Personas);
 
         return "reservafinal";
+    }
+
+    @GetMapping("/habitaciones")
+    public String habitaciones(HttpSession session, ModelMap model) {
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        model.put("nombreUsuario", login.getNombre());
+        if (login == null) {
+            return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
+        }
+        return "Habitaciones";
+    }
+
+    @GetMapping("/ubicacion")
+    public String ubicacion(HttpSession session, ModelMap model) {
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        model.put("nombreUsuario", login.getNombre());
+        if (login == null) {
+            return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
+        }
+        return "ubicacion";
     }
 }

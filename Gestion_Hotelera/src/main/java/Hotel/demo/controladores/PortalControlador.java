@@ -24,7 +24,6 @@ public class PortalControlador {
 
     @GetMapping("/index")
     public String index(ModelMap model) {
-//        model.put("sinUser", true);
         return "index.html";
     }
 
@@ -65,5 +64,6 @@ public class PortalControlador {
     public String habitaciones(@RequestParam(required = false) String error, ModelMap model) {
         return "Habitaciones";
     }
+            
 
 }
