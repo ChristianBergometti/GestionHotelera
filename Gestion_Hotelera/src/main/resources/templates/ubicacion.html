@@ -19,21 +19,10 @@
 <body>
 
     <header>
-        <nav class="nav">
-
-            <a href="/" class="logo" style="text-decoration:none"> <strong> Eggperience </strong> </a>
-            <ul class="menu">
-
-                <li> <a href="/"> <strong> Hotel </strong> </a> </li>
-                <li> <a href="#"> <strong>Habitaciones </strong> </a> </li>
-                <li> <a href="#"> <strong>Reservas</strong> </a></li>
-                <li> <a href="#"> <strong>Ubicación</strong> </a></li>
-                <li><a href="/login"> <strong>Ingresar</strong> </a></li>
-
-            </ul>
-        </nav>
+            <div th:replace="fragmentos/menu :: menu"></div> 
+            <!--fragmento de reemplazo para el menú-->
     </header>
-    <img src="../static/img/viñedoubicacion.jpg" class="img1">
+    <img src="../img/viñedoubicacion.jpg" class="img1">
     <div class="rectangulo"></div>
     <p id="texto1">Ubicación</p>
     <div class="mapa">
@@ -47,9 +36,9 @@
     <p id="texto3">Dirección</p>
     <p id="texto4">Emilio Civit, esquina Maza, Maipu (05515), Mendoza, Argentina</p>
     <div class="rectangulofotos"></div>
-    <img src="../static/img/mendozacity.jpg" class="img2">
-    <img src="../static/img/parqueubicacion.jpg" class="img3">
-    <img src="../static/img/diqueubicacion.jpg" class="img4">
+    <img src="../img/mendozacity.jpg" class="img2">
+    <img src="../img/parqueubicacion.jpg" class="img3">
+    <img src="../img/diqueubicacion.jpg" class="img4">
     <footer>
         <rectangulo id="foot"> </rectangulo>
         <p id="eggp">Eggperience</p>
@@ -62,6 +51,6 @@
             target="blank"><img src="../img/whatsapp.png" class="what"></a>
     </footer>
     <div class="scrol"></div>
-    <script src="../static/js/menuIndex.js"></script>
+    <script src="../js/menuIndex.js"></script>
 </body>
 </html>

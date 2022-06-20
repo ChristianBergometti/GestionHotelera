@@ -86,7 +86,7 @@ body {
     font-weight: bold;
     transition: all 0.5 ease;
 }
-
+    
 .menu li a:hover {
     padding: 5px 10px;
     background: #618985;
@@ -143,12 +143,10 @@ div.rectangulo {
 }
 
 /*.mapa.iframe{
-
    width: 250px;
    height: 250px;
     top: 800px;
     box-sizing: border-box;
-
 position: absolute;
 width: 529px;
 height: 384px;

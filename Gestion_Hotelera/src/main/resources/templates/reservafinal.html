@@ -15,18 +15,8 @@
     </head>
     <body>
         <header>
-            <nav class="nav">
-                <a href= "/index" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> 
-                <ul class="menu">
-
-                    <li> <a href= "/index" >  <strong> Hotel </strong> </a> </li>
-                    <li> <a href= "#" > <strong>Habitaciones </strong> </a>  </li>
-                    <li> <a href= "#"> <strong>Reservas</strong> </a></li>
-                    <li> <a href= "#" > <strong>Ubicación</strong> </a></li>
-                    <li><a href= "/login"> <strong>Ingresar</strong> </a></li>
-
-                </ul>
-            </nav>
+            <div th:replace="fragmentos/menu :: menu"></div> 
+            <!--fragmento de reemplazo para el menú-->
         </header>
         <div class="rectangulo"> </div>
 
@@ -57,7 +47,7 @@
                 <label for="" class="label4">Habitación séxtuple</label>
                 <input class="input4" th:value="${habitacion6}" disabled></input>
                 <input class="input4" name="Habitacion6Personas" th:value="${habitacion6}" hidden></input>
-                
+
 
 
                 <p class="input6" th:if="${error != null}" th:text="${error}" style="color:red;"> </p>

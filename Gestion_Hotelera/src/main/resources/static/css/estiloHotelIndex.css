@@ -72,7 +72,8 @@ header{
     margin: 15px
 
 }
-.menu li a:not(.dropdown-item ){  /*le pedimos que a esa clase no se le aplique el estilo*/
+
+.menu li a{  /*le pedimos que a esa clase no se le aplique el estilo*//* SE QUITÓ :not(.dropdown-item ) porque no se ven las letras en el scroll down*/
     color:#FFFF;
     text-decoration: none;
     font-weight: bold;
