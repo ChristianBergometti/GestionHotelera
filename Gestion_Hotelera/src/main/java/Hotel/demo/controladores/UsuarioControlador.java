@@ -103,6 +103,7 @@ public class UsuarioControlador {
             modelo.put("error", ex.getMessage());
             return "editarPerfil";
         }
+        modelo.put("nombreUsuario", login.getNombre());
         modelo.put("edicion", "clave");
         modelo.put("mensaje", "Datos modificados con éxito");
         return "editarPerfil";
@@ -123,7 +124,7 @@ public class UsuarioControlador {
             reservaServicio.crearReserva(pagar, (Date) fechas.get(0), (Date) fechas.get(1), login, habitacionesAReservar, CantidadPersonas);
 
             modelo.addAttribute("exito", "La reserva ha sido realizada.");
-
+            modelo.put("nombreUsuario", login.getNombre());
             return "reservaHotel";
         }
     }
@@ -152,10 +153,12 @@ public class UsuarioControlador {
             reservaServicio.validarFechas((Date) fechas.get(0), (Date) fechas.get(1));
             habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
         } catch (ErrorServicio ex) {
-            modelo.put("error", ex.getMessage());
+            modelo.addAttribute("error", ex.getMessage());
+            modelo.addAttribute("nombreUsuario", login.getNombre());
             return "reservaHotel";
         } catch (ParseException ex) {
-            modelo.put("error", "Colocar ambas fechas");
+            modelo.addAttribute("error", "Colocar ambas fechas");
+            modelo.addAttribute("nombreUsuario", login.getNombre());
             return "reservaHotel";
         }
 

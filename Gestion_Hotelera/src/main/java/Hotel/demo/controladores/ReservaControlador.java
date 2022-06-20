@@ -27,8 +27,6 @@ public class ReservaControlador {
     private ReservaServicio reservaServicio;
     @Autowired
     private HabitacionServicio habitacionServicio;
-    @Autowired
-    private UsuarioServicio usuarioServicio;
 
     @GetMapping("/reservas")
     public String reservas(ModelMap model) {

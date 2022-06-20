@@ -25,9 +25,9 @@
         <form action="/personas"   method="POST">
 
 
-            <input type="text" hidden  name="idReserva" th:value="${idReserva}" >                
-            <input type="date"  name="Checkin" placeholder="" th:value="${CheckIn}"></input>
-            <input type="date"  name="Checkout" placeholder="" th:value="${CheckOut}"></input>
+            
+            <input type="date" hidden name="Checkin" placeholder="" th:value="${CheckIn}"></input>
+            <input type="date" hidden name="Checkout" placeholder="" th:value="${CheckOut}"></input>
 
             <div class="mb-3">
                 <label for="" class="label1">Cantidad de personas</label>
