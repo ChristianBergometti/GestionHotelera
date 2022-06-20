@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @PreAuthorize("hasAnyRole('ROLE_USER')")
 @RequestMapping("/usuario")
-public class UsuarioControlador{
+public class UsuarioControlador {
 
     @Autowired
     private ReservaServicio reservaServicio;
@@ -33,8 +33,9 @@ public class UsuarioControlador{
     private UsuarioServicio usuarioServicio;
 
     @GetMapping("/inicioOk")
-    public String inicioOk(HttpSession session) {
+    public String inicioOk(HttpSession session,ModelMap model) {
         Usuario login = (Usuario) session.getAttribute("usuariosession");
+        model.put("nombreUsuario", login.getNombre());
         if (login == null) {
             return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
         }
@@ -58,12 +59,14 @@ public class UsuarioControlador{
         model.put("NombreCompleto", login.getNombre());
         model.put("CorreoElectronico", login.getEmail());
         model.put("DocumentoDeIdentidad", login.getDNI());
+        model.put("nombreUsuario", login.getNombre());
         return "editarPerfil";
     }
 
     @PostMapping("/editaPersonal")
     public String editaPersonal(HttpSession session, ModelMap modelo, @RequestParam String NombreCompleto, @RequestParam String DocumentoDeIdentidad) {
         Usuario login = (Usuario) session.getAttribute("usuariosession");
+        modelo.put("nombreUsuario", login.getNombre());
         try {
             usuarioServicio.editarDatosPersonales(login.getId(), NombreCompleto, DocumentoDeIdentidad);
         } catch (ErrorServicio ex) {
@@ -93,8 +96,9 @@ public class UsuarioControlador{
     @PostMapping("/editaClave")
     public String editaClave(HttpSession session, ModelMap modelo, @RequestParam String Clave1, @RequestParam String Clave2) {
         Usuario login = (Usuario) session.getAttribute("usuariosession");
+        modelo.put("nombreUsuario", login.getNombre());
         try {
-            usuarioServicio.editarClave(login.getId(), Clave1,Clave2);
+            usuarioServicio.editarClave(login.getId(), Clave1, Clave2);
         } catch (ErrorServicio ex) {
             modelo.put("edicion", "clave");
             modelo.put("error", ex.getMessage());
@@ -104,7 +108,7 @@ public class UsuarioControlador{
         modelo.put("mensaje", "Datos modificados con éxito");
         return "editarPerfil";
     }
-    
+
     @PostMapping("/confirmar")
     public String confirmar(ModelMap modelo, HttpSession session, @RequestParam Double pagar, @RequestParam String Checkin, @RequestParam String Checkout, @RequestParam Integer Habitacion2Personas,
             @RequestParam Integer Habitacion4Personas, @RequestParam Integer Habitacion6Personas, @RequestParam Integer CantidadPersonas) throws ParseException, ErrorServicio {
@@ -123,5 +127,93 @@ public class UsuarioControlador{
 
             return "reservaHotel";
         }
-}
+    }
+
+    @GetMapping("/reservas_logueado")
+    public String reservas(HttpSession session, ModelMap model) {
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        model.put("nombreUsuario", login.getNombre());
+        if (login == null) {
+            return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
+        }
+        return "reservaHotel";
+    }
+
+    @PostMapping("/fechas")
+    public String fechas(HttpSession session, ModelMap modelo, @RequestParam String Checkin, @RequestParam String Checkout) throws ParseException {
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        modelo.put("nombreUsuario", login.getNombre());
+        if (login == null) {
+            return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
+        }
+        List<List<Habitacion>> habitacionesDisponibles;
+        List<Object> fechas;
+        try {
+            fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
+            reservaServicio.validarFechas((Date) fechas.get(0), (Date) fechas.get(1));
+            habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+        } catch (ErrorServicio ex) {
+            modelo.put("error", ex.getMessage());
+            return "reservaHotel";
+        } catch (ParseException ex) {
+            modelo.put("error", "Colocar ambas fechas");
+            return "reservaHotel";
+        }
+
+        return reservas2(session, modelo, fechas, habitacionesDisponibles);
+    }
+
+    @GetMapping("/reservas2")
+    public String reservas2(HttpSession session, ModelMap modelo, List<Object> fechas, List<List<Habitacion>> habitacionesDisponibles) {
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        modelo.put("nombreUsuario", login.getNombre());
+        if (login == null) {
+            return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
+        }
+        modelo.addAttribute("disponibles2", habitacionesDisponibles.get(0).size());
+        modelo.addAttribute("disponibles4", habitacionesDisponibles.get(1).size());
+        modelo.addAttribute("disponibles6", habitacionesDisponibles.get(2).size());
+        modelo.addAttribute("CheckIn", (String) fechas.get(2));
+        modelo.addAttribute("CheckOut", (String) fechas.get(3));
+        modelo.addAttribute("cantidadDePersonas", habitacionServicio.calcularCantidadMaximaDePersonas(habitacionesDisponibles));
+
+        return "reservaHotel2";
+    }
+
+    @PostMapping("/personas")
+    public String personas(HttpSession session, ModelMap modelo, @RequestParam String Checkin, @RequestParam String Checkout,
+            @RequestParam Integer CantidadPersonas, @RequestParam Integer Habitacion2Personas,
+            @RequestParam Integer Habitacion4Personas, @RequestParam Integer Habitacion6Personas) throws ParseException, ErrorServicio {
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        modelo.put("nombreUsuario", login.getNombre());
+        if (login == null) {
+            return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
+        }
+        List<Object> fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
+        try {
+
+            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+            List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(habitacionesDisponibles, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
+            reservaServicio.validarCapacidad(CantidadPersonas, habitacionesAReservar);
+            return reservasFinal(session,modelo, fechas, CantidadPersonas, habitacionesAReservar, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
+        } catch (ErrorServicio ex) {
+            modelo.put("error", ex.getMessage());
+            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+            return reservas2(session,modelo, fechas, habitacionesDisponibles);
+        }
+    }
+
+    @GetMapping("/reservasFinal")
+    public String reservasFinal(HttpSession session, ModelMap model, List<Object> fechas, Integer CantidadPersonas, List<Habitacion> habitacionesAReservar, Integer Habitacion2Personas,
+            Integer Habitacion4Personas, Integer Habitacion6Personas) {
+        model.addAttribute("CheckIn", (String) fechas.get(2));
+        model.addAttribute("CheckOut", (String) fechas.get(3));
+        model.addAttribute("CantidadPersonas", CantidadPersonas);
+        model.addAttribute("pagar", reservaServicio.calcularHospedaje(habitacionesAReservar, (Date) fechas.get(0), (Date) fechas.get(1)));
+        model.addAttribute("habitacion2", Habitacion2Personas);
+        model.addAttribute("habitacion4", Habitacion4Personas);
+        model.addAttribute("habitacion6", Habitacion6Personas);
+
+        return "reservafinal";
+    }
 }

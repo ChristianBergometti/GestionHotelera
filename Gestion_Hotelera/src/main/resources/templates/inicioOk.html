@@ -18,27 +18,28 @@
 
 
         <header>
-            <nav class="nav">
-                <a href= "/index_logueado" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> 
+             <nav class="nav">
 
-
+                <a href= "/" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> 
                 <ul class="menu">
 
                     <li> <a href= "/usuario/index_logueado" >  <strong> Hotel </strong> </a> </li>
                     <li> <a href= "/habitaciones" > <strong>Habitaciones </strong> </a>  </li>
                     <li> <a href= "/reservas"> <strong>Reservas</strong> </a></li>
                     <li> <a href= "#" > <strong>Ubicación</strong> </a></li>
-                    <li>
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Usuario
+                    <li sec:authorize="hasAnyRole('ROLE_USER')">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+                           th:text="${nombreUsuario}">
+
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/usuario/editarPerfil">Editar perfil</a>
                             <a class="dropdown-item" href="/usuario/editarClave">Cambiar contraseña</a>
                             <a class="dropdown-item" href="#">Ver Reservas</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
                     </li>                    
-                    <li><a href= "/logout"> <strong>Logout</strong> </a></li>
+                    <li th:if="${session.usuariosession == null}"><a href= "/login"> <strong>Login</strong> </a></li>
 
                 </ul>
             </nav>

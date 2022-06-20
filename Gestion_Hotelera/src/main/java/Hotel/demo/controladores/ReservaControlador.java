@@ -86,7 +86,7 @@ public class ReservaControlador {
         }
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
+    
     @GetMapping("/reservasFinal")
     public String reservasFinal(ModelMap model, List<Object> fechas, Integer CantidadPersonas, List<Habitacion> habitacionesAReservar, Integer Habitacion2Personas,
             Integer Habitacion4Personas, Integer Habitacion6Personas) {
@@ -101,26 +101,7 @@ public class ReservaControlador {
         return "reservafinal";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
-    @PostMapping("/confirmar")
-    public String confirmar(ModelMap modelo, HttpSession session, @RequestParam Double pagar, @RequestParam String Checkin, @RequestParam String Checkout, @RequestParam Integer Habitacion2Personas,
-            @RequestParam Integer Habitacion4Personas, @RequestParam Integer Habitacion6Personas, @RequestParam Integer CantidadPersonas) throws ParseException, ErrorServicio {
-
-        Usuario login = (Usuario) session.getAttribute("usuariosession");
-        if (login == null) {
-            return "login";
-        } else {
-            List<Object> fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
-            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
-            List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(habitacionesDisponibles, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
-
-            reservaServicio.crearReserva(pagar, (Date) fechas.get(0), (Date) fechas.get(1), login, habitacionesAReservar, CantidadPersonas);
-
-            modelo.addAttribute("exito", "La reserva ha sido realizada.");
-
-            return "reservaHotel";
-        }
-
+    
     }
 
-}
+

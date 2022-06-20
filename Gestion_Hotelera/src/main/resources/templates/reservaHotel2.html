@@ -48,15 +48,10 @@
         <form action="/personas"   method="POST">
 
 
-                <input type="text" hidden  name="idReserva" th:value="${idReserva}" >
-<<<<<<< HEAD
-                <input type="date" name="Checkin"  th:value="${CheckIn}">
-                <input type="date" name="Checkout" th:value="${CheckOut}">
-                
-=======
-                <input type="date" hidden name="Checkin" placeholder="" th:value="${CheckIn}">
-                <input type="date" hidden name="Checkou" placeholder="" th:value="${CheckOut}">
->>>>>>> 1f57a5d (diverged branch)
+                <input type="text" hidden  name="idReserva" th:value="${idReserva}" >                
+                <input type="date"  name="Checkin" placeholder="" th:value="${CheckIn}"></input>
+                <input type="date"  name="Checkout" placeholder="" th:value="${CheckOut}"></input>
+
             <div class="mb-3">
                 <label for="" class="label1">Cantidad de personas</label>
                 <input type="number" class="input1" name="CantidadPersonas" placeholder="" min="1" th:max="${CantidadPersonas}" >
