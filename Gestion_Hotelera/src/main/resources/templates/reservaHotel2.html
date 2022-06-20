@@ -31,16 +31,16 @@
 
             <div class="mb-3">
                 <label for="" class="label1">Cantidad de personas</label>
-                <input type="number" class="input1" name="CantidadPersonas" placeholder="" min="1" th:max="${CantidadPersonas}" >
+                <input type="number" class="input1" name="CantidadPersonas" value ="0" min="0" th:max="${cantidadDePersonas}" >
                 <!--//probar el max con th:value para limitar--> 
                 <label for="" class="label2">Habitación doble</label>
-                <input type="number" class="input2" name="Habitacion2Personas" placeholder="" value ="0"  th:max="${habitacion2Personas}" >
+                <input type="number" class="input2" name="Habitacion2Personas" placeholder="" value ="0" min="0" th:max="${disponibles2}" >
                 <!--th:max es la etiqueta THYMELEAF que etea el MÁXIMO de estos INPUTS-->
                 <label for="" class="label3">Habitación cuádruple</label>
-                <input type="number" class="input3" name="Habitacion4Personas" placeholder="" value ="0" th:max="${habitacion4Personas}" >
+                <input type="number" class="input3" name="Habitacion4Personas" placeholder="" value ="0" min="0" th:max="${disponibles4}" >
 
                 <label for="" class="label4">Habitación séxtuple</label>
-                <input type="number" class="input4" name="Habitacion6Personas" placeholder="" value ="0" th:max="${habitacion6Personas}" >
+                <input type="number" class="input4" name="Habitacion6Personas" placeholder="" value ="0" min="0" th:max="${disponibles6}" >
 
 
                 <p class="input3" id="error" th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
