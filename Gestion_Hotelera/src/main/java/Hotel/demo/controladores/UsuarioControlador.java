@@ -11,7 +11,6 @@ import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -42,7 +41,7 @@ public class UsuarioControlador {
         return "inicioOk";
     }
 
-    @GetMapping("/index_logueado")
+    @GetMapping("/index")
     public String indexLogueado(HttpSession session, ModelMap model) {
         Usuario login = (Usuario) session.getAttribute("usuariosession");
         model.put("nombreUsuario", login.getNombre());
@@ -54,8 +53,8 @@ public class UsuarioControlador {
 
     @GetMapping("/editarPerfil")
     public String editarPerfil(HttpSession session, ModelMap model) {
-        model.put("edicion", "perfil");
         Usuario login = (Usuario) session.getAttribute("usuariosession");
+        model.put("edicion", "perfil");
         model.put("NombreCompleto", login.getNombre());
         model.put("CorreoElectronico", login.getEmail());
         model.put("DocumentoDeIdentidad", login.getDNI());
@@ -129,7 +128,7 @@ public class UsuarioControlador {
         }
     }
 
-    @GetMapping("/reservas_logueado")
+    @GetMapping("/reservas")
     public String reservas(HttpSession session, ModelMap model) {
         Usuario login = (Usuario) session.getAttribute("usuariosession");
         model.put("nombreUsuario", login.getNombre());
