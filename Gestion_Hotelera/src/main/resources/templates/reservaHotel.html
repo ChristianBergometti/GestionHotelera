@@ -23,37 +23,10 @@
         <div class="rectangulo"> </div>
         <img src="../img/booking.png" class="booking"  >
 
-
-        <form action="/fechas"   method="POST">
-
-            <div class="mb-3">
-                <label for="" class="label1">Check in</label>
-                <input type="date" class="input1" name="Checkin" placeholder="" th:value="${CheckIn}">
-
-                <label for="" class="label2">Check out</label>
-                <input type="date" class="input2" name="Checkout" placeholder="" th:value="${CheckOut}">
-
-                <!--<label for="" class="label3">Habitaciones</label>
-                <input type="number" class="input3" name="Habitaciones" placeholder="" th:value="${Habitaciones}">
-    
-                 <label for="" class="label4">Personas</label>
-                <input type="number" class="input4" name="Personas" placeholder="" th:value="${Personas}" > -->
-
-                <p class="label2" id="error" th:if="${exito != null}" th:text="${exito}" style="color:rgb(142, 240, 76);"></p>
-                <p class="label2" id="error" th:if="${error != null}" th:text="${error}" style="color:red;"> </p>
-
-            </div>
-
-
-            <button type="submit">
-                <span class="label">buscar</span>
-                <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
-                </span>
-            </button>
-
-        </form>
-
+        <div th:if="${nombreUsuario == null}">
+        <div th:replace="fragmentos/formularioReserva :: fecha"></div> </div>
+        <div th:if="${nombreUsuario != null}">
+        <div th:replace="fragmentos/formularioReserva :: fechasLogueado"></div> </div>
 
 
         <div class="scrol"></div>
