@@ -1,6 +1,9 @@
 <div th:fragment="menu">
     <nav class="nav">
-        <a href= "/" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> 
+        <div th:if="${SinLogin == 'SinLogin'}">
+        <a href= "/" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> </div>
+        <div th:if="${SinLogin != 'SinLogin'}">
+        <a href= "/usuario/index" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> </div>
         <ul class="menu">
             <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
                 <a href= "/usuario/index" > <strong>Hotel</strong> </a>
