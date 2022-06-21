@@ -120,7 +120,6 @@ public class UsuarioControlador {
             List<Object> fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
             List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((String) fechas.get(2), (String) fechas.get(3));
             List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(habitacionesDisponibles, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
-
             reservaServicio.crearReserva(pagar, (Date) fechas.get(0), (Date) fechas.get(1), login, habitacionesAReservar, CantidadPersonas);
 
             modelo.addAttribute("exito", "La reserva ha sido realizada.");
@@ -239,4 +238,15 @@ public class UsuarioControlador {
         model.put("nombreUsuario", login.getNombre());
         return "ubicacion";
     }
+    @GetMapping("/reservasHechas")
+    public String reservasHechas(HttpSession session, ModelMap model) throws ErrorServicio {
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        if (login == null) {
+            return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
+        }
+        model.put("nombreUsuario", login.getNombre());
+        model.addAttribute("lista", reservaServicio.consultarReservasPorIdUsuario(login));
+        return "usuarioReserva";
+    }
+ 
 }
