@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playball&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
         <title>Habitaciones</title>
-        <link rel="shortcut icon" href="img/hotel_icon.png">
+        <link rel="icon" href="../img/hotel_icon.png">
     </head>
     <body>
 
@@ -41,8 +41,12 @@
         <p id="mensaje4">Climatización </p>
         <p id="mensaje5">Caja fuerte </p>
         <p id="mensaje6">Tv Led </p>
-        <a href="#"  style="text-decoration:none"> <button> Reservar <span></span> </button> </a>
-
+        <div th:if="${session.usuariosession == null}">
+            <a href="/reservas"  style="text-decoration:none"> <button> Reservar <span></span> </button> </a>
+        </div>
+        <div th:if="${session.usuariosession != null}">
+            <a href="/usuario/reservas"  style="text-decoration:none"> <button> Reservar <span></span> </button> </a>
+        </div>
         <!-- habitacion cuadruple-->
 
         <p id="subtitulo2" > Habitación Cuádruple </p>
@@ -69,8 +73,12 @@
         <p id="mensaje28">Sala de estar </p>
 
 
-        <a href="#"  style="text-decoration:none"> <button id="boton2"> Reservar <span></span> </button> </a>
-
+        <div th:if="${session.usuariosession == null}">
+            <a href="/reservas"  style="text-decoration:none"> <button id="boton2"> Reservar <span></span> </button> </a>
+        </div>
+        <div th:if="${session.usuariosession != null}">
+            <a href="/usuario/reservas"  style="text-decoration:none"> <button id="boton2"> Reservar <span></span> </button> </a>
+        </div>
         <!-- habitacion sextuple-->
         <p id="subtitulo3" > Habitación Séxtuple </p>
         <p id="parrafo3">Para aquellos que viajan en grupo o en familia, la habitación sextuple cuenta con todas las comodidades para su hospedaje en Mendoza.</p>
@@ -98,7 +106,12 @@
         <p id="mensaje38">Sala de estar </p>
         <p id="mensaje39">Vestidor </p>
 
-        <a href="#"  style="text-decoration:none"> <button id="boton3"> Reservar <span></span> </button> </a>
+        <div th:if="${session.usuariosession == null}">
+        <a href="/reservas"  style="text-decoration:none"> <button id="boton3"> Reservar <span></span> </button> </a>
+        </div>
+         <div th:if="${session.usuariosession != null}">
+        <a href="/usuario/reservas"  style="text-decoration:none"> <button id="boton3"> Reservar <span></span> </button> </a>
+        </div>
 
         <footer> 
             <rectangulo id="foot"> </rectangulo>
