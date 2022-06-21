@@ -12,6 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playball&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
         <title>Reserva2</title>
+        <link rel="shortcut icon" href="img/hotel_icon.png">
     </head>
     <body>
         <header>
@@ -27,22 +28,19 @@
                         <th>Ingreso</th>
                         <th>Egreso</th>
                         <th>Personas</th>
-                        <th>Habitaciones Dobles</th>
-                        <th>Habitaciones Cuádruples</th>
-                        <th>Habitaciones Séxtuples</th>
-                        <th scope="col">Cancelar</th>
+                        <th>Habitaciones Reservadas</th>
+                        <th scope="col">Cancelar Reserva</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="listadoAux :${lista}">
-                        <td> prueba</td>
+                        <td th:if="${listadoAux.alta==true}" th:text='ACTIVA'></td>
+                        <td th:if="${listadoAux.alta!=true}" th:text='INACTIVA'></td>
                         <td th:text="${listadoAux.ingreso}"></td>
                         <td th:text="${listadoAux.egreso}"></td>
                         <td th:text="${listadoAux.personas}"></td>
                         <td th:text="${listadoAux.habitaciones}"></td>
-<!--                        <td><a class="btn btn-warning" id="editaboton" th:href="@{/libro/{id} (id=${listadoAux.id})}">Editar</a></td>
-                        <td th:if="${listadoAux.alta==false}"><a class="btn btn-success" th:href="@{libro/alta/{id} (id=${listadoAux.id})}">Alta</a></td>
-                        <td th:unless="${listadoAux.alta==false}"><a class="btn btn-danger" th:href="@{libro/baja/{id} (id=${listadoAux.id})}">Baja</a></td>-->
+                        <td th:if="${listadoAux.alta==true}"><a class="btn btn-danger" th:href="@{/usuario/reserva/{id} (id=${listadoAux.id})}">Cancelar Reserva</a></td>
 
                     </tr>
                 </tbody>
