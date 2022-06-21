@@ -157,10 +157,10 @@ button:hover .icon {
 
     box-sizing: border-box;
 
-    position: absolute;
-    width: 650px;
+    position: fixed;
+    width: 80%;
     height: 475px;
-    left: 425px;
+    left: 30px;
     top: 200px;
 
     background: #FAFDFD;
