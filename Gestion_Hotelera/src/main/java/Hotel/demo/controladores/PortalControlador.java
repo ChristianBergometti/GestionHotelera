@@ -18,12 +18,13 @@ public class PortalControlador {
     private UsuarioServicio usuarioServicio;
 
     @GetMapping("/")
-    public String landing() {
+    public String landing(ModelMap model) {
         return "landingHotel.html";
     }
 
     @GetMapping("/index")
     public String index(ModelMap model) {
+        model.addAttribute("SinLogin", "SinLogin");
         return "index.html";
     }
 
