@@ -26,14 +26,17 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     3. Liste el resto de las habitaciones
     
     @Query(value = "SELECT * FROM usuario WHERE email = :email", nativeQuery = true);*/
-    @Query(value = "SELECT h.id, h.alta, h.capacidad, h.numero, h.precio\n"
+  @Query(value = "SELECT h.id,h.alta, h.capacidad, h.numero, h.precio\n"
             + "FROM habitacion h\n"
-            + "WHERE h.id NOT IN (SELECT h.id FROM habitacion h \n"
+            + "WHERE h.id NOT IN (SELECT h.id \n"
+            + "FROM habitacion h \n"
             + "JOIN reserva_habitaciones rh\n"
-            + "ON rh.habitaciones_id = h.id \n"
-            + "JOIN reserva r\n"
-            + "ON r.id = rh.reserva_id\n"
+            + "ON rh.habitaciones_id = h.id\n"
+            + "JOIN reserva r ON r.id = rh.reserva_id\n"
             + "WHERE ((CAST(:ingreso AS DATE) BETWEEN r.ingreso AND r.egreso)\n"
-            + "AND (CAST(:egreso AS DATE) BETWEEN r.ingreso AND r.egreso)))", nativeQuery = true)
+            + "OR (CAST(:egreso AS DATE) BETWEEN r.ingreso AND r.egreso)\n"
+            + "OR (r.ingreso BETWEEN CAST(:ingreso AS DATE) AND CAST(:egreso AS DATE)))\n"
+            + "OR (r.egreso BETWEEN CAST(:ingreso AS DATE) AND CAST(:egreso AS DATE))"
+             + "AND (h.alta = true))", nativeQuery = true)
     public List<Habitacion> listarPorPeriodo(@Param("ingreso") String ingreso, @Param("egreso") String egreso);
 }
