@@ -26,7 +26,7 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     3. Liste el resto de las habitaciones
     
     @Query(value = "SELECT * FROM usuario WHERE email = :email", nativeQuery = true);*/
-    @Query(value = "SELECT h.id, h.capacidad, h.numero, h.precio\n"
+    @Query(value = "SELECT h.id, h.alta, h.capacidad, h.numero, h.precio\n"
             + "FROM habitacion h\n"
             + "WHERE h.id NOT IN (SELECT h.id FROM habitacion h \n"
             + "JOIN reserva_habitaciones rh\n"
