@@ -15,6 +15,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -238,15 +239,32 @@ public class UsuarioControlador {
         model.put("nombreUsuario", login.getNombre());
         return "ubicacion";
     }
+
     @GetMapping("/reservasHechas")
     public String reservasHechas(HttpSession session, ModelMap model) throws ErrorServicio {
         Usuario login = (Usuario) session.getAttribute("usuariosession");
         if (login == null) {
             return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
         }
-        model.put("nombreUsuario", login.getNombre());
-        model.addAttribute("lista", reservaServicio.consultarReservasPorIdUsuario(login));
-        return "usuarioReserva";
+        try {
+            model.put("nombreUsuario", login.getNombre());
+            model.addAttribute("lista", reservaServicio.consultarReservasPorIdUsuario(login));
+            return "usuarioReserva";
+        } catch (ErrorServicio ex) {
+            model.addAttribute("error", ex.getMessage());
+            return "usuarioReserva";
+        }
     }
- 
+
+    @GetMapping("/reserva/{id}")
+    public String bajaReserva(@PathVariable("id") String id, ModelMap modelo) throws ErrorServicio {
+        try {
+            reservaServicio.baja(id);
+            return "redirect:/usuario/reservasHechas";
+        } catch (ErrorServicio ex) {
+            modelo.put("error", ex.getMessage());
+            return "redirect:/usuario/reservasHechas";
+        }
+    }
+
 }
