@@ -37,7 +37,7 @@ public class ReservaControlador {
         try {
             fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
             reservaServicio.validarFechas((Date) fechas.get(0), (Date) fechas.get(1));
-            habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+            habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((String) fechas.get(2), (String) fechas.get(3));
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
             return "reservaHotel";
@@ -69,13 +69,13 @@ public class ReservaControlador {
         List<Object> fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
         try {
 
-            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((String) fechas.get(2), (String) fechas.get(3));
             List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(habitacionesDisponibles, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
             reservaServicio.validarCapacidad(CantidadPersonas, habitacionesAReservar);
             return reservasFinal(modelo, fechas, CantidadPersonas, habitacionesAReservar, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
-            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((String) fechas.get(2), (String) fechas.get(3));
             return reservas2(modelo, fechas, habitacionesDisponibles);
         }
     }
