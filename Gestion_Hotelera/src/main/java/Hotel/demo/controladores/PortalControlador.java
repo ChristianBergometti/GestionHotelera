@@ -28,6 +28,18 @@ public class PortalControlador {
         return "index.html";
     }
 
+    @GetMapping("/hotel")
+    public String hotel(ModelMap model) {
+        model.addAttribute("SinLogin", "SinLogin");
+        return "hotel.html";
+    }
+
+    @GetMapping("/conocenos")
+    public String conocenos(ModelMap model) {
+        model.addAttribute("SinLogin", "SinLogin");
+        return "conocenos.html";
+    }
+
     @GetMapping("/registro")
     public String registro() {
         return "registroUsuarioHotel";
@@ -65,6 +77,5 @@ public class PortalControlador {
     public String habitaciones(@RequestParam(required = false) String error, ModelMap model) {
         return "Habitaciones";
     }
-            
 
 }

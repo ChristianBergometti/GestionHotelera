@@ -6,8 +6,8 @@
         <a href= "/usuario/index" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> </div>
         <ul class="menu">
             <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
-                <a href= "/usuario/index" > <strong>Hotel</strong> </a>
-            </li><li th:if="${session.usuariosession == null}"> <a href= "/index" >  <strong> Hotel </strong> </a> </li>
+                <a href= "/usuario/hotel" > <strong>Hotel</strong> </a>
+            </li><li th:if="${session.usuariosession == null}"> <a href= "/hotel" >  <strong> Hotel </strong> </a> </li>
             <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
                 <a href= "/usuario/habitaciones" > <strong>Habitaciones</strong> </a>
             </li>
@@ -21,7 +21,7 @@
             </li>
             <li th:if="${session.usuariosession == null}"> <a href= "/ubicacion" > <strong>Ubicación</strong> </a></li>
             <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+                <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
                    th:text="${nombreUsuario}">
 
                 </a>

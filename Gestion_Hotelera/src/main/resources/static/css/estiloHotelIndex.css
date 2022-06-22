@@ -327,8 +327,8 @@ header{
 }
 
 body{
-
-    background-color: rgba(249, 248, 236, 1);
+    background: rgb(255,251,240);
+    background: radial-gradient(circle, rgba(255,251,240,1) 0%, rgba(255,239,218,1) 85%);
     z-index: -500;
 }
 
@@ -529,7 +529,8 @@ body{
     left: 0px;
     top: 1330px;
 
-    background: rgba(242, 227, 188, 0.4);
+    background: rgb(242,227,188);
+    background: radial-gradient(circle, rgba(242,227,188,1) 0%, rgba(199,177,148,0.9251050762101716) 100%);
 }
 
 .rectangulo2{
@@ -546,7 +547,7 @@ body{
 
 }
 
-#texto3{
+.texto3{
     position: absolute;
     width: 444px;
     height: 57px;
@@ -564,7 +565,7 @@ body{
 
 }
 
-#texto4{
+.texto4{
     position: absolute;
     width: 444px;
     height: 98px;
@@ -1030,8 +1031,84 @@ body{
     color:gray;
     padding: 2px;
 }
+/*agregado GABY*/
 
 
 
 
 
+
+
+.imag2:hover{
+    transform: scale(1.4);
+    z-index: 500;
+}
+
+
+.imag3:hover{
+    transform: scale(1.4);
+    z-index: 500;
+}
+
+
+.imag4:hover{
+    transform: scale(1.4);
+
+    z-index: 500;
+}
+
+
+.botones{
+
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.7);
+    text-align:center;
+    position: absolute;
+    color:#FFF;
+    box-shadow: 0 0 10px rgba(255,255,255,.6);
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+
+
+}
+
+.botones:hover {
+    cursor: pointer;
+    transform: scale(1.2,1.2);
+}
+
+.atras{
+    left: 720px;
+    top:  2260px;
+    z-index: 500;
+}
+
+
+.adelante{
+    left: 787px;
+    top:  2260px;
+    z-index: 500;
+}
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529 ;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: black;
+    border: 15px;
+}
+
+.nav.active  .dropdown-item{
+
+    background-color: #FFF;
+    color: black ;
+}

@@ -1,0 +1,805 @@
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+header {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+body {
+  /*background-color: rgba(203, 225, 225, 0.35)*/
+  background: rgb(251,255,255);
+background: radial-gradient(circle, rgba(251,255,255,0.7374300061821604) 0%, rgba(221,238,237,1) 100%);
+}
+
+
+.nav {
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  transition: all 0.5s ease;
+  position: fixed;
+  font-family: 'Roboto';
+  z-index: 1000;
+
+}
+
+.nav.active {
+  background: #FFF;
+  padding: 15px;
+
+}
+
+.nav.active .logo,
+.nav.active a {
+  color: black;
+}
+
+.nav.active a:hover {
+  background: black;
+  color: #FFF;
+}
+
+.nav a.logo:hover {
+  /*agregamos al logo el estilo statico*/
+  background: none;
+  color: black;
+  padding: 3.5px 4px;
+}
+
+.nav.active a.logo:hover {
+  /*agregamos al logo el estilo activo*/
+  background: none;
+  color: black;
+  padding: 3.5px 4px;
+}
+
+.logo {
+  font-size: 42px;
+  color: black;
+  font-weight: 400;
+  font-family: 'Playball';
+
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  list-style: none;
+  margin: 15px
+}
+
+.menu li a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.5 ease;
+}
+
+.menu li a:hover {
+  padding: 5px 10px;
+  background: #618985;
+  color: #FFF;
+  border-radius: 15px;
+
+}
+
+.scrol {
+  height: 100px;
+}
+
+#subtitulo {
+
+  position: absolute;
+  width: 743px;
+  height: 166px;
+  left: 410px;
+  top: 332px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 68px;
+
+  color: #FFFFFF;
+}
+
+.usuario {
+
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: 1340px;
+  top: 555px;
+
+}
+
+.whatsapp {
+
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: 1340px;
+  top: 645px;
+}
+
+@-webkit-keyframes usuario {
+  16.65% {
+    -webkit-transform: translate(8px, 8px);
+    transform: translate(8px, 8px);
+  }
+
+  33.3% {
+    -webkit-transform: translate(-6px, -6px);
+    transform: translate(-6px, -6px);
+  }
+
+  49.95% {
+    -webkit-transform: translate(4px, 4px);
+    transform: translate(4px, 4px);
+  }
+
+  66.6% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+
+  83.25% {
+    -webkit-transform: translate(1px, 1px);
+    transform: translate(1px, 1px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes usuario {
+  16.65% {
+    -webkit-transform: translate(8px, 8px);
+    transform: translate(8px, 8px);
+  }
+
+  33.3% {
+    -webkit-transform: translate(-6px, -6px);
+    transform: translate(-6px, -6px);
+  }
+
+  49.95% {
+    -webkit-transform: translate(4px, 4px);
+    transform: translate(4px, 4px);
+  }
+
+  66.6% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+
+  83.25% {
+    -webkit-transform: translate(1px, 1px);
+    transform: translate(1px, 1px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+.usuario {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.usuario:hover,
+.usuario:focus,
+.usuario:active {
+  -webkit-animation-name: usuario;
+  animation-name: usuario;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+@-webkit-keyframes hvr-wobble-to-top-right {
+  16.65% {
+    -webkit-transform: translate(8px, -8px);
+    transform: translate(8px, -8px);
+  }
+
+  33.3% {
+    -webkit-transform: translate(-6px, 6px);
+    transform: translate(-6px, 6px);
+  }
+
+  49.95% {
+    -webkit-transform: translate(4px, -4px);
+    transform: translate(4px, -4px);
+  }
+
+  66.6% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+
+  83.25% {
+    -webkit-transform: translate(1px, -1px);
+    transform: translate(1px, -1px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes hvr-wobble-to-top-right {
+  16.65% {
+    -webkit-transform: translate(8px, -8px);
+    transform: translate(8px, -8px);
+  }
+
+  33.3% {
+    -webkit-transform: translate(-6px, 6px);
+    transform: translate(-6px, 6px);
+  }
+
+  49.95% {
+    -webkit-transform: translate(4px, -4px);
+    transform: translate(4px, -4px);
+  }
+
+  66.6% {
+    -webkit-transform: translate(-2px, 2px);
+    transform: translate(-2px, 2px);
+  }
+
+  83.25% {
+    -webkit-transform: translate(1px, -1px);
+    transform: translate(1px, -1px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+body {
+  background-color: rgba(203, 225, 225, 0.35)
+}
+
+.img1 {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 1313px;
+  height: 467px;
+  left: 110px;
+  top: 150px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+.img2 {
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 788px;
+  height: 481px;
+  left: 100px;
+  top: 470px;
+
+  background: url(piletahotel.jpg);
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+div.rectangulo {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 290px;
+  height: 65px;
+  left: 127px;
+  top: 580px;
+
+  background: #A28E5C;
+  border: 1px solid #000000;
+}
+
+#texto1 {
+
+  position: absolute;
+  width: 275px;
+  height: 46px;
+  left: 143px;
+  top: 590px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+h2 {
+  position: absolute;
+  width: 327px;
+  height: 147px;
+  left: 135px;
+  top: 898px;
+
+  font-family: 'Roboto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 47px;
+  display: flex;
+  align-items: center;
+
+  color: #8F7D4D;
+
+}
+
+#texto2 {
+  position: absolute;
+  width: 807px;
+  height: 365px;
+  left: 557px;
+  top: 821px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+
+}
+
+#texto3 {
+  position: absolute;
+  width: 533px;
+  height: 223px;
+  left: 64px;
+  top: 1467px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 38px;
+
+  color: #000000;
+
+}
+
+div.rectangulopiscina {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 130px;
+  height: 50px;
+  left: 1200px;
+  top: 1265px;
+
+  background: #A28E5C;
+  border: 1px solid #000000;
+
+}
+
+#texto4 {
+  position: absolute;
+  width: 130px;
+  height: 47px;
+  left: 1210px;
+  top: 1265px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+#texto5 {
+  position: absolute;
+  width: 533px;
+  height: 268px;
+  left: 915px;
+  top: 2087px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+
+}
+
+.img3 {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 789px;
+  height: 482px;
+  left: 90px;
+  top: 1965px;
+
+  background: url(esplendor-mendoza-breakfast-1.jpg);
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+div.rectangulodesayuno {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 175px;
+  height: 50px;
+  left: 105px;
+  top: 1935px;
+
+  background: #A28E5C;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#texto6 {
+  position: absolute;
+  width: 167px;
+  height: 56px;
+  left: 121px;
+  top: 1932px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+#texto7 {
+  /* Conoce todos los servicios que Eggperience Hotel tiene para vos! */
+
+
+  position: absolute;
+  width: 1344px;
+  height: 141px;
+  left: 270px;
+  top: 2554px;
+
+  font-family: 'Roboto Serif';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 42px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #8F7D4D;
+
+}
+
+.img4 {
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  left: 310px;
+  top: 2736px;
+}
+
+#texto8 {
+  position: absolute;
+  width: 148px;
+  height: 110px;
+  left: 290px;
+  top: 2857px;
+
+  font-family: 'Roboto Serif';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+.img5 {
+  position: absolute;
+  width: 116px;
+  height: 93px;
+  left: 570px;
+  top: 2736px;
+}
+
+#texto9 {
+  position: absolute;
+  width: 100px;
+  height: 48px;
+  left: 595px;
+  top: 2870px;
+
+  font-family: 'Roboto Serif';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+.img6 {
+  position: absolute;
+  width: 116px;
+  height: 93px;
+  left: 830px;
+  top: 2736px;
+}
+
+#texto10 {
+  position: absolute;
+  width: 128px;
+  height: 54px;
+  left: 837px;
+  top: 2865px;
+
+  font-family: 'Roboto Serif';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+.img7 {
+  position: absolute;
+  width: 110px;
+  height: 93px;
+  left: 1116px;
+  top: 2736px;
+}
+
+#texto11 {
+  position: absolute;
+  width: 244px;
+  height: 43px;
+  left: 1115px;
+  top: 2865px;
+
+  font-family: 'Roboto Serif';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+#texto12 {
+  position: absolute;
+  width: 299px;
+  height: 35px;
+  left: 710px;
+  top: 3000px;
+
+  font-family: 'Roboto Serif';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+#foot {
+
+  position: absolute;
+  width: 1650px;
+  height: 109px;
+  left: 0px;
+  top: 3100px;
+
+  background: #6c7a79;
+}
+
+#eggp {
+  position: absolute;
+  width: 208px;
+  height: 35px;
+  left: 31px;
+  top: 3125px;
+
+  font-family: 'Playball';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 40px;
+
+  color: rgba(240, 238, 238, 0.527);
+}
+
+#by {
+  position: absolute;
+  width: 171px;
+  height: 24px;
+  left: 92px;
+  top: 3155px;
+
+  font-family: 'Playball';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  /* identical to box height */
+
+
+  color: rgba(240, 238, 238, 0.527);
+
+}
+
+#derechos {
+  position: absolute;
+  width: 359px;
+  height: 19px;
+  left: 1120px;
+  top: 3145px;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  /* identical to box height */
+
+
+  color: rgba(240, 238, 238, 0.822);
+
+}
+
+/*botones del footer*/
+
+.insta {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 260px;
+  top: 3145px;
+
+}
+
+.face {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 335px;
+  top: 3145px;
+  z-index: 1000;
+}
+
+.what {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 405px;
+  top: 3145px;
+
+
+}
+
+.what {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.what:hover,
+.what:focus,
+.what:active {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+.insta {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.insta:hover,
+.insta:focus,
+.insta:active {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+.face {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.face:hover,
+.face:focus,
+.face:active {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+/*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;*/

@@ -26,7 +26,18 @@
 
         <p id="subtitulo1" > Habitación Matrimonial </p>
         <p id="parrafo1">Las habitaciones Matrimoniales del Hotel Eggperience Mendoza cuentan con el mobiliario necesario para que disfrutes al máximo tu estadía. Se destacan por su decoración y comodidad.</p>
-        <img src="../img/habitacionDoble.png" class="doble"  >
+
+        <div class="contendor">
+            <div class="atras botones" onclick=" cambiarImagenAnterior()">
+                &#60
+            </div>
+
+            <div class="adelante botones" onclick="cambiarImagenSiguiente()">
+                &#62
+            </div>
+            <img src="../img/habitacionDoble.png" alt="" class="doble" id="imagenDoble" >
+        </div>
+
 
         <img src="../img/dimension.png" class="dimension"  >
         <img src="../img/copa-de-champan.png" class="minibar"  >
@@ -51,7 +62,17 @@
 
         <p id="subtitulo2" > Habitación Cuádruple </p>
         <p id="parrafo2">Para aquellos que viajan en grupo o en familia, la habitación Cuádruple cuenta con todas las comodidades para su hospedaje en Mendoza.</p>
-        <img src="../img/habitación cuadruple.jpg" class="cuadruple"  >
+
+        <div class="atras2 botones" onclick=" cambiarImagenAnterior2()">
+            &#60
+        </div>
+
+        <div class="adelante2 botones"  onclick="cambiarImagenSiguiente2()" >
+            &#62
+        </div>
+        <img src="../img/habitacioncuadruple.jpg" class="cuadruple"  id="imagenCuadruple" >
+
+
 
         <img src="../img/dimension.png" class="dimension2"  >
         <img src="../img/copa-de-champan.png" class="minibar2"  >
@@ -82,7 +103,15 @@
         <!-- habitacion sextuple-->
         <p id="subtitulo3" > Habitación Séxtuple </p>
         <p id="parrafo3">Para aquellos que viajan en grupo o en familia, la habitación sextuple cuenta con todas las comodidades para su hospedaje en Mendoza.</p>
-        <img src="../img/habitacion sextuple.jpg" class="sextuple"  >
+
+        <div class="atras3 botones" onclick=" cambiarImagenAnterior3()">
+            &#60
+        </div>
+
+        <div class="adelante3 botones"  onclick="cambiarImagenSiguiente3()" >
+            &#62
+        </div>
+        <img src="../img/habitacionsextuple.jpg" class="sextuple"  id="imagenSextuple">
 
         <img src="../img/dimension.png" class="dimension3"  >
         <img src="../img/copa-de-champan.png" class="minibar3"  >
@@ -94,7 +123,7 @@
         <img src="../img/sala-de-estar.png" class="sala3"  >
         <img src="../img/vestidor.png" class="vestidor3"  >
 
-        <img src="../img/vestidorImagen.jpg" class="vestidorImagen"  >
+        <img src="../img/vestidorhotel.jpg" class="vestidorImagen"  >
 
         <p id="mensaje31">47m2 </p>
         <p id="mensaje32">Minibar </p>
@@ -107,10 +136,10 @@
         <p id="mensaje39">Vestidor </p>
 
         <div th:if="${session.usuariosession == null}">
-        <a href="/reservas"  style="text-decoration:none"> <button id="boton3"> Reservar <span></span> </button> </a>
+            <a href="/reservas"  style="text-decoration:none"> <button id="boton3"> Reservar <span></span> </button> </a>
         </div>
-         <div th:if="${session.usuariosession != null}">
-        <a href="/usuario/reservas"  style="text-decoration:none"> <button id="boton3"> Reservar <span></span> </button> </a>
+        <div th:if="${session.usuariosession != null}">
+            <a href="/usuario/reservas"  style="text-decoration:none"> <button id="boton3"> Reservar <span></span> </button> </a>
         </div>
 
         <footer> 
@@ -119,15 +148,97 @@
             <p id="by"> by egg</p>
             <p id="derechos">©  Eggperience - todos los derechos reservados</p>
 
-            <a href="#"><img src="../img/facebook2.png" class="face"></a>
-            <a href="#"><img src="../img/instagram.png" class="insta"></a>
-            <a href="#"><img src="../img/whatsapp.png" class="what"></a>
+            <a href="https://www.facebook.com/"  target="blank"><img src="../img/facebook2.png" class="face"></a>
+            <a href="https://www.instagram.com/"  target="blank"><img src="../img/instagram.png" class="insta"></a>
+            <a href="https://api.whatsapp.com/send?phone=3875152032&text=%C2%A1Hola!%20Bienvenidos%20a%20Eggperiencie" target="blank"><img src="../img/whatsapp.png" class="what"></a>
         </footer> 
-
-
-
 
         <div class="scrol"></div>
         <script src="../js/menuIndex.js"></script>
-    </body>
+        <script type="text/javascript"> 
+    const imagenes = ['../img/habitacionDoble.png', '../img/habitaciondoblesala.jpg' , '../img/bañohabitaciondoble.jpg'] 
+    let posicion=0;
+    function cambiarImagenSiguiente (){
+      
+        var imagenPrincipal= document.getElementById("imagenDoble") 
+        if(posicion===imagenes.length-1){
+            imagenPrincipal.src=imagenes[0]
+            posicion=0
+        }else{
+            imagenPrincipal.src=imagenes[posicion+1]
+            posicion=posicion+1
+        }  
+        }
+
+    function cambiarImagenAnterior (){
+      
+        var imagenPrincipal= document.getElementById("imagenDoble") 
+        if(posicion===0){
+            imagenPrincipal.src=imagenes[imagenes.length-1]
+            posicion=imagenes.length-1
+        }else{
+            imagenPrincipal.src=imagenes[posicion-1]
+            posicion=posicion-1
+        }  
+        }
+
+    </script>
+    <script type="text/javascript"> 
+        const imagenes2 = [ '../img/habitacioncuadruple.jpg' , '../img/habitacioncuadruplesala.jpg', '../img/bañohabitacioncuadruple.jpg'] 
+        let posicion2=0;
+        function cambiarImagenSiguiente2 (){
+          
+            var imagenPrincipal2= document.getElementById("imagenCuadruple") 
+            if(posicion2===imagenes2.length-1){
+                imagenPrincipal2.src=imagenes2[0]
+                posicion2=0
+            }else{
+                imagenPrincipal2.src=imagenes2[posicion2+1]
+                posicion2=posicion2+1
+            }  
+            }
+    
+        function cambiarImagenAnterior2 (){
+          
+            var imagenPrincipal2= document.getElementById("imagenCuadruple") 
+            if(posicion2===0){
+                imagenPrincipal2.src=imagenes2[imagenes2.length-1]
+                posicion2=imagenes2.length-1
+            }else{
+                imagenPrincipal2.src=imagenes2[posicion2-1]
+                posicion2=posicion2-1
+            }  
+            }
+    
+        </script>
+        
+        <script type="text/javascript"> 
+            const imagenes3 = [ '../img/habitacionsextuple.jpg' , '../img/habitacionsextuplesala.jpg', '../img/bañohabitacionsextuple.jpg'] 
+            let posicion3=0;
+            function cambiarImagenSiguiente3 (){
+              
+                var imagenPrincipal3= document.getElementById("imagenSextuple") 
+                if(posicion3===imagenes3.length-1){
+                    imagenPrincipal3.src=imagenes3[0]
+                    posicion3=0
+                }else{
+                    imagenPrincipal3.src=imagenes3[posicion3+1]
+                    posicion3=posicion3+1
+                }  
+                }
+        
+            function cambiarImagenAnterior3 (){
+              
+                var imagenPrincipal3= document.getElementById("imagenSextuple") 
+                if(posicion3===0){
+                    imagenPrincipal3.src=imagenes3[imagenes3.length-1]
+                    posicion3=imagenes3.length-1
+                }else{
+                    imagenPrincipal3.src=imagenes3[posicion3-1]
+                    posicion3=posicion3-1
+                }  
+                }
+        
+            </script>
+</body>
 </html>

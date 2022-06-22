@@ -22,7 +22,7 @@
             <div th:replace="fragmentos/menu :: menu"></div> 
             <!--fragmento de reemplazo para el menú-->
         </header>
-        <div class="rectangulo"> </div>
+       <div class="rectangulo"> </div>
         <img src="../img/user.png" class="usuario"  >
         <p id="subtitulo"> Bienvenido/a </p>
         <p id="subtitulo2" th:if="${session.usuariosession != null}" th:text="${session.usuariosession.nombre}"></p>
@@ -31,8 +31,19 @@
         <div class="circulo"> </div>
 
         <a href="/usuario/index"><button type="button" class="" id="registr"> Ir al inicio </button></a>
+        <footer> 
+            <rectangulo id="foot"> </rectangulo>
+            <p id="eggp">Eggperience</p>
+            <p id="by"> by egg</p>
+            <p id="derechos">©  Eggperience - todos los derechos reservados</p>
+    
+            <a href="https://www.facebook.com/"  target="blank"><img src="../img/facebook2.png" class="face"></a>
+            <a href="https://www.instagram.com/"  target="blank"><img src="../img/instagram.png" class="insta"></a>
+            <a href="https://api.whatsapp.com/send?phone=3875152032&text=%C2%A1Hola!%20Bienvenidos%20a%20Eggperiencie" target="blank"><img src="../img/whatsapp.png" class="what"></a>
+        </footer> 
+        
         <div class="scrol"></div>
-        <script src="../js/menuIndex.js"></script>
+        <script src="../static/js/menuIndex.js"></script>
 
 
 

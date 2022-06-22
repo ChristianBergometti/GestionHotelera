@@ -412,3 +412,144 @@ body{
 
 }
 
+
+#foot{
+
+    position: absolute;
+    width: 1650px;
+    height: 109px;
+    left: 0px;
+    top: 800px;
+
+    background:  #6c7a79;
+   }
+
+   #eggp{
+    position: absolute;
+    width: 208px;
+    height: 35px;
+    left: 31px;
+    top: 825px;
+    
+    font-family: 'Playball';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 40px;
+    
+    color:   rgba(240, 238, 238, 0.527);
+   }
+   #by{
+    position: absolute;
+    width: 171px;
+    height: 24px;
+    left: 92px;
+    top: 855px;
+    
+    font-family: 'Playball';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+    
+    
+    color: rgba(240, 238, 238, 0.527);
+
+   }
+
+   #derechos{
+    position: absolute;
+    width: 359px;
+    height: 19px;
+    left: 1120px;
+    top: 840px;
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: rgba(240, 238, 238, 0.822);
+
+   }
+
+   /*botones del footer*/
+ 
+   .insta{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 260px;
+    top:845px;
+
+   }
+
+   .face{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 335px;
+    top:845px;
+    z-index: 1000;
+   }
+
+   .what{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 405px;
+    top:845px;
+
+
+   }
+
+   .what {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  .what:hover, .what:focus, .what:active {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  }
+
+  .insta {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  .insta:hover, .insta:focus, .insta:active {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  }
+  .face {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+  .face:hover, .face:focus, .face:active {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  }
