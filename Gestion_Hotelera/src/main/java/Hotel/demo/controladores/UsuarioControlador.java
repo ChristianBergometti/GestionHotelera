@@ -52,6 +52,16 @@ public class UsuarioControlador {
         return "index";
     }
 
+    @GetMapping("/conocenos")
+    public String conocenos(HttpSession session, ModelMap model) {
+        Usuario login = (Usuario) session.getAttribute("usuariosession");
+        if (login == null) {
+            return "redirect:/login";// si pasa tiempo y no hace nada para vuelva a inicio
+        }
+        model.put("nombreUsuario", login.getNombre());
+        return "conocenos.html";
+    }
+
     @GetMapping("/hotel")
     public String hotelLogueado(HttpSession session, ModelMap model) {
         Usuario login = (Usuario) session.getAttribute("usuariosession");

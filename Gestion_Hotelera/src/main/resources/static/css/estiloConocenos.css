@@ -119,79 +119,96 @@ body{
 .footer .group-2 small{
   font-size: 15px;
 }
-.nav{
+*{
 
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content:space-between ; 
-    padding: 25px;
-    transition:all 0.5s ease;
-    position: fixed;
-    font-family: 'Roboto';
-    z-index: 1000;  /*para que la barra de navegación este superpuesta a todo*/
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
 
 }
 
+header{
+  height: 6vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+body{
 
+  background-color:  #f8f7fc 20%;
+}
+
+
+.nav{
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content:space-between ; 
+  padding: 25px;
+  transition:all 0.5s ease;
+  position: fixed;
+  font-family: 'Roboto';
+  z-index: 1000;
+
+}
 .nav.active{
-    background: #FFF;
-    padding: 15px;
+  background: #FFF;
+  padding: 15px;
 
 }
 .nav.active .logo,
 .nav.active a{
-    color:black;
+  color:black;
 }
-.nav.active  a:hover{ 
-    background: black;
-    color:#FFF;
+.nav.active a:hover{
+  background: black;
+  color:#FFF;
 }
-.nav a.logo:hover{        /*agregamos al logo el estilo statico*/
-    background: none;
-    color:#FFF;
-    padding: 3.5px 4px;
+
+.nav a.logo:hover{        /agregamos al logo el estilo statico/
+  background: none;
+  color:black;
+  padding: 3.5px 4px;
 }   
 
-.nav.active  a.logo:hover{   /*agregamos al logo el estilo activo*/
-    background: none;
-    color:black;
-    padding: 3.5px 4px;
+.nav.active  a.logo:hover{   /agregamos al logo el estilo activo/
+  background: none;
+  color:black;
+  padding: 3.5px 4px;
 }
 
 .logo{
-    font-size: 42px;
-    color: #FFF;
-    font-weight: 400;
-    font-family: 'Playball';
-
+  font-size: 42px;
+  color:black;
+  font-weight: 400;
+  font-family: 'Playball';
 
 }
 .menu{
-    display: flex;
+  display: flex;
 }
 .menu li{
-    list-style: none;
-    margin: 15px
+  list-style: none;
+  margin: 15px
 
 }
-
-.menu li a{  /*le pedimos que a esa clase no se le aplique el estilo*//* SE QUITÓ :not(.dropdown-item ) porque no se ven las letras en el scroll down*/
-    color:#FFFF;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.5 ease;
+.menu li a{
+  color:#000000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.5 ease;
 }
 
 .menu li a:hover{
-    padding: 5px 10px;
-    background: #FFFF;
-    color:black;
-    border-radius: 15px;  
+  padding: 5px 10px;
+  background: #618985;
+  color:#FFF;
+  border-radius: 15px;  
 
 }
 
 .scrol{
-    height: 100px;
+  height: 100px;
 }
