@@ -1,17 +1,8 @@
 package Hotel.demo.controladores;
 
-import Hotel.demo.entidades.Habitacion;
-import Hotel.demo.entidades.Usuario;
 import Hotel.demo.errores.ErrorServicio;
-import Hotel.demo.servicios.HabitacionServicio;
-import Hotel.demo.servicios.ReservaServicio;
 import Hotel.demo.servicios.UsuarioServicio;
-import java.text.ParseException;
-import java.util.Date;
-import java.util.List;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,25 +16,38 @@ public class PortalControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
-    @Autowired
-    private ReservaServicio reservaServicio;
-    @Autowired
-    private HabitacionServicio habitacionServicio;
 
     @GetMapping("/")
-    public String landing() {
+    public String landing(ModelMap model) {
         return "landingHotel.html";
     }
 
     @GetMapping("/index")
     public String index(ModelMap model) {
-//        model.put("sinUser", true);
+        model.addAttribute("SinLogin", "SinLogin");
         return "index.html";
+    }
+
+    @GetMapping("/hotel")
+    public String hotel(ModelMap model) {
+        model.addAttribute("SinLogin", "SinLogin");
+        return "hotel.html";
+    }
+
+    @GetMapping("/conocenos")
+    public String conocenos(ModelMap model) {
+        model.addAttribute("SinLogin", "SinLogin");
+        return "conocenos.html";
     }
 
     @GetMapping("/registro")
     public String registro() {
         return "registroUsuarioHotel";
+    }
+
+    @GetMapping("/ubicacion")
+    public String ubicacion() {
+        return "ubicacion";
     }
 
     @GetMapping("/login")

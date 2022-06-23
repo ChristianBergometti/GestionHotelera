@@ -12,33 +12,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playball&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
         <title>IndexHotel</title>
+        <link rel="icon" href="../img/hotel_icon.png">
     </head>
     <body>
 
 
         <header>
-            <nav class="nav">
-                <a href= "/index" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> 
-                <ul class="menu">
-
-                    <li> <a href= "/usuario/index_logueado" >  <strong> Hotel </strong> </a> </li>
-                    <li> <a href= "#" > <strong>Habitaciones </strong> </a>  </li>
-                    <li> <a href= "#"> <strong>Reservas</strong> </a></li>
-                    <li> <a href= "#" > <strong>Ubicación</strong> </a></li>
-                    <li>
-                        <a class=" dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Usuario
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/usuario/editarPerfil">Editar perfil</a>
-                            <a class="dropdown-item" href="/usuario/editarClave">Cambiar contraseña</a>
-                            <a class="dropdown-item" href="#">Ver Reservas</a>
-                        </div>
-                    </li>                    
-                    <li><a href= "/logout"> <strong>Logout</strong> </a></li>
-
-                </ul>
-            </nav>
+            <div th:replace="fragmentos/menu :: menu"></div> 
+            <!--fragmento de reemplazo para el menú-->
 
         </header>
 
@@ -81,9 +62,7 @@
                 <button type="submit" class="" id="edit"> Editar Contraseña </button>
             </form>
         </div>
-
-        
-    <footer> 
+         <footer> 
         <rectangulo id="foot"> </rectangulo>
         <p id="eggp">Eggperience</p>
         <p id="by"> by egg</p>

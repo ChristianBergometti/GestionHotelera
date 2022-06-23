@@ -1,0 +1,39 @@
+<div th:fragment="menu">
+    <nav class="nav">
+        <div th:if="${SinLogin == 'SinLogin'}">
+        <a href= "/" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> </div>
+        <div th:if="${SinLogin != 'SinLogin'}">
+        <a href= "/usuario/index" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> </div>
+        <ul class="menu">
+            <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
+                <a href= "/usuario/hotel" > <strong>Hotel</strong> </a>
+            </li><li th:if="${session.usuariosession == null}"> <a href= "/hotel" >  <strong> Hotel </strong> </a> </li>
+            <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
+                <a href= "/usuario/habitaciones" > <strong>Habitaciones</strong> </a>
+            </li>
+            <li th:if="${session.usuariosession == null}"> <a href= "/habitaciones" > <strong>Habitaciones </strong> </a>  </li>
+            <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
+                <a href= "/usuario/reservas" > <strong>Reservas</strong> </a>
+            </li>
+            <li th:if="${session.usuariosession == null}"> <a href= "/reservas"> <strong>Reservas</strong> </a></li>
+            <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
+                <a href= "/usuario/ubicacion" > <strong>Ubicación</strong> </a>
+            </li>
+            <li th:if="${session.usuariosession == null}"> <a href= "/ubicacion" > <strong>Ubicación</strong> </a></li>
+            <li th:if="${session.usuariosession != null}" sec:authorize="hasAnyRole('ROLE_USER')">
+                <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+                   th:text="${nombreUsuario}">
+
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/usuario/editarPerfil">Editar perfil</a>
+                    <a class="dropdown-item" href="/usuario/editarClave">Cambiar contraseña</a>
+                    <a class="dropdown-item" href="/usuario/reservasHechas">Ver Reservas</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </li>                    
+            <li th:if="${session.usuariosession == null}"><a href= "/login"> <strong>Login</strong> </a></li>
+
+        </ul>
+    </nav>
+</div>

@@ -13,38 +13,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playball&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
         <title>LoginHotel</title>
+        <link rel="icon" href="../img/hotel_icon.png">
     </head>
     <body>
 
 
         <header>
-            <nav class="nav">
-                <a href= "/index_logueado" class="logo"  style="text-decoration:none">  <strong> Eggperience </strong> </a> 
-
-
-                <ul class="menu">
-
-                    <li> <a href= "/usuario/index_logueado" >  <strong> Hotel </strong> </a> </li>
-                    <li> <a href= "/habitaciones" > <strong>Habitaciones </strong> </a>  </li>
-                    <li> <a href= "/reservas"> <strong>Reservas</strong> </a></li>
-                    <li> <a href= "#" > <strong>Ubicación</strong> </a></li>
-                    <li>
-                        <a class=" dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Usuario
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/usuario/editarPerfil">Editar perfil</a>
-                            <a class="dropdown-item" href="/usuario/editarClave">Cambiar contraseña</a>
-                            <a class="dropdown-item" href="#">Ver Reservas</a>
-                        </div>
-                    </li>                    
-                    <li><a href= "/logout"> <strong>Logout</strong> </a></li>
-
-                </ul>
-            </nav>
-
+            <div th:replace="fragmentos/menu :: menu"></div> 
+            <!--fragmento de reemplazo para el menú-->
         </header>
-        <div class="rectangulo"> </div>
+       <div class="rectangulo"> </div>
         <img src="../img/user.png" class="usuario"  >
         <p id="subtitulo"> Bienvenido/a </p>
         <p id="subtitulo2" th:if="${session.usuariosession != null}" th:text="${session.usuariosession.nombre}"></p>
@@ -52,8 +30,7 @@
         <div class="linea2"> </div>
         <div class="circulo"> </div>
 
-        <a href="/usuario/index_logueado"><button type="button" class="" id="registr"> Ir al inicio </button></a>
-
+        <a href="/usuario/index"><button type="button" class="" id="registr"> Ir al inicio </button></a>
         <footer> 
             <rectangulo id="foot"> </rectangulo>
             <p id="eggp">Eggperience</p>

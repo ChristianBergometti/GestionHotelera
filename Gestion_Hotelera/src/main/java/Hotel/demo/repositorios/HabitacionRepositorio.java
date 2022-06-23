@@ -18,7 +18,7 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     public List<Habitacion> habitacionesPorPrecio(@Param("precioHabitacion") Double precio);
 
     public List<Habitacion> findByAltaTrue();
-    
+
     /*Necesitamos que la query 
     1. Descarte las habitaciones relacionadas con una Reserva que coincida con las fechas de ingreso y
     egreso.
@@ -26,12 +26,17 @@ public interface HabitacionRepositorio extends JpaRepository<Habitacion, String>
     3. Liste el resto de las habitaciones
     
     @Query(value = "SELECT * FROM usuario WHERE email = :email", nativeQuery = true);*/
-    
-    @Query(value = "SELECT * FROM habitacion h INNER JOIN reserva r ON r.h.id = h.id"
-            + " WHERE((:ingreso NOT BETWEEN r.ingreso AND r.egreso AND "
-            + "(:egreso NOT BETWEEN r.ingreso AND r.egreso) AND "
-            + "(:ingreso NOT LIKE r.ingreso AND r.egreso) AND "
-            + "(:egreso NOT LIKE r.ingreso AND r.egreso))AND "
-            + "(h.alta LIKE true)", nativeQuery = true) 
-    public List<Habitacion> listarPorPeriodo(@Param("ingreso") Date ingreso, @Param("egreso") Date egreso);
+  @Query(value = "SELECT h.id,h.alta, h.capacidad, h.numero, h.precio\n"
+            + "FROM habitacion h\n"
+            + "WHERE h.id NOT IN (SELECT h.id \n"
+            + "FROM habitacion h \n"
+            + "JOIN reserva_habitaciones rh\n"
+            + "ON rh.habitaciones_id = h.id\n"
+            + "JOIN reserva r ON r.id = rh.reserva_id\n"
+            + "WHERE ((CAST(:ingreso AS DATE) BETWEEN r.ingreso AND r.egreso)\n"
+            + "OR (CAST(:egreso AS DATE) BETWEEN r.ingreso AND r.egreso)\n"
+            + "OR (r.ingreso BETWEEN CAST(:ingreso AS DATE) AND CAST(:egreso AS DATE)))\n"
+            + "OR (r.egreso BETWEEN CAST(:ingreso AS DATE) AND CAST(:egreso AS DATE))"
+             + "AND (h.alta = true))", nativeQuery = true)
+    public List<Habitacion> listarPorPeriodo(@Param("ingreso") String ingreso, @Param("egreso") String egreso);
 }

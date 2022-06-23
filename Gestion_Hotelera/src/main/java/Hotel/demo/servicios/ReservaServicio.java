@@ -14,6 +14,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -79,10 +80,15 @@ public class ReservaServicio {
     }
 
     @Transactional
-    public void baja(Reserva reserva) {
-        reserva.setAlta(false);
-
-        reservaRepositorio.save(reserva);
+    public void baja(String id) throws ErrorServicio {
+        Optional<Reserva> respuesta = reservaRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Reserva reserva = reservaRepositorio.findById(id).get();
+            reserva.setAlta(Boolean.FALSE);
+            reservaRepositorio.save(reserva);
+        } else {
+            throw new ErrorServicio("No se encontraron reservas para el usuario.");
+        }
     }
 
     @Transactional(readOnly = true)
@@ -116,9 +122,9 @@ public class ReservaServicio {
         return fechaDate;
     }
 
-    public List<List<Habitacion>> listarHabitacionesDisponibles(Date ingreso, Date egreso) throws ErrorServicio {
-        //List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
-        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.findByAltaTrue();
+    public List<List<Habitacion>> listarHabitacionesDisponibles(String ingreso, String egreso) throws ErrorServicio {
+        List<Habitacion> habitacionesDisponibles = habitacionRepositorio.listarPorPeriodo(ingreso, egreso);
+        //List<Habitacion> habitacionesDisponibles = habitacionRepositorio.findByAltaTrue();
 
         if (habitacionesDisponibles.isEmpty()) {
             throw new ErrorServicio("No hay habitaciones disponibles en el período seleccionado.");

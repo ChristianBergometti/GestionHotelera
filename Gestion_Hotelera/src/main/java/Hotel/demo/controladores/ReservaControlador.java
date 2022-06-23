@@ -1,17 +1,13 @@
 package Hotel.demo.controladores;
 
 import Hotel.demo.entidades.Habitacion;
-import Hotel.demo.entidades.Usuario;
 import Hotel.demo.errores.ErrorServicio;
 import Hotel.demo.servicios.HabitacionServicio;
 import Hotel.demo.servicios.ReservaServicio;
-import Hotel.demo.servicios.UsuarioServicio;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,8 +23,6 @@ public class ReservaControlador {
     private ReservaServicio reservaServicio;
     @Autowired
     private HabitacionServicio habitacionServicio;
-    @Autowired
-    private UsuarioServicio usuarioServicio;
 
     @GetMapping("/reservas")
     public String reservas(ModelMap model) {
@@ -43,7 +37,7 @@ public class ReservaControlador {
         try {
             fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
             reservaServicio.validarFechas((Date) fechas.get(0), (Date) fechas.get(1));
-            habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+            habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((String) fechas.get(2), (String) fechas.get(3));
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
             return "reservaHotel";
@@ -75,18 +69,18 @@ public class ReservaControlador {
         List<Object> fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
         try {
 
-            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((String) fechas.get(2), (String) fechas.get(3));
             List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(habitacionesDisponibles, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
             reservaServicio.validarCapacidad(CantidadPersonas, habitacionesAReservar);
             return reservasFinal(modelo, fechas, CantidadPersonas, habitacionesAReservar, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
         } catch (ErrorServicio ex) {
             modelo.put("error", ex.getMessage());
-            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
+            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((String) fechas.get(2), (String) fechas.get(3));
             return reservas2(modelo, fechas, habitacionesDisponibles);
         }
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
+    
     @GetMapping("/reservasFinal")
     public String reservasFinal(ModelMap model, List<Object> fechas, Integer CantidadPersonas, List<Habitacion> habitacionesAReservar, Integer Habitacion2Personas,
             Integer Habitacion4Personas, Integer Habitacion6Personas) {
@@ -101,26 +95,7 @@ public class ReservaControlador {
         return "reservafinal";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
-    @PostMapping("/confirmar")
-    public String confirmar(ModelMap modelo, HttpSession session, @RequestParam Double pagar, @RequestParam String Checkin, @RequestParam String Checkout, @RequestParam Integer Habitacion2Personas,
-            @RequestParam Integer Habitacion4Personas, @RequestParam Integer Habitacion6Personas, @RequestParam Integer CantidadPersonas) throws ParseException, ErrorServicio {
-
-        Usuario login = (Usuario) session.getAttribute("usuariosession");
-        if (login == null) {
-            return "login";
-        } else {
-            List<Object> fechas = reservaServicio.convertir2StringADates(Checkin, Checkout);
-            List<List<Habitacion>> habitacionesDisponibles = reservaServicio.listarHabitacionesDisponibles((Date) fechas.get(0), (Date) fechas.get(1));
-            List<Habitacion> habitacionesAReservar = habitacionServicio.crearListaHabitaciones(habitacionesDisponibles, Habitacion2Personas, Habitacion4Personas, Habitacion6Personas);
-
-            reservaServicio.crearReserva(pagar, (Date) fechas.get(0), (Date) fechas.get(1), login, habitacionesAReservar, CantidadPersonas);
-
-            modelo.addAttribute("exito", "La reserva ha sido realizada.");
-
-            return "reservaHotel";
-        }
-
+    
     }
 
-}
+

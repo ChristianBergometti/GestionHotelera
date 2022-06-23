@@ -1,0 +1,61 @@
+<div th:fragment="fragmento_footer">
+    <div th:if="${SinLogin == 'SinLogin'}">
+        <footer>
+            <div class="foot" > 
+                <p id="foot1">Eggperience </p>
+                <p id="foot2">By egg </p>
+                <a href="/registro"> <p id="foot3">¡Registrate aquí!</p></a>
+                <p id="foot4">Descubre Eggperience </p>
+                <a href="/hotel"><p id="foot5">Hotel </p></a>
+                <a href="/habitaciones"><p id="foot6">Habitaciones </p></a>
+                <a href="/reservas"><p id="foot7">Reservas </p></a>
+                <a href="/ubicacion"><p id="foot8">Ubicación </p></a>
+                <a href="/conocenos"><p id="foot9">Quiénes somos </p></a>
+                <p id="foot10">Habitaciones </p>
+                <a href="/habitaciones"><p id="foot11">Doble </p></a>
+                <a href="/habitaciones"><p id="foot12">Cuádruple </p></a>
+                <a href="/habitaciones"><p id="foot13">Séxtuple </p></a>
+                <p id="foot14">Contáctanos </p>
+                <a href="https://api.whatsapp.com/send?phone=3875152032&text=%C2%A1Hola!%20Bienvenidos%20a%20Eggperiencie" target="blank"><p id="foot15">Reservas +3875152032 </p></a>
+                <a href="https://api.whatsapp.com/send?phone=3874631624&text=%C2%A1Hola!%20Bienvenidos%20a%20Eggperiencie" target="blank"><p id="foot16">Recepción +3874631624 </p></a>
+                <a href="https://api.whatsapp.com/send?phone=3876532043&text=%C2%A1Hola!%20Bienvenidos%20a%20Eggperiencie" target="blank"><p id="foot17">WhatsApp +3876532043 </p></a>
+                <a href="mailto:reservas@eggperience.com"><p id="foot18">reservas@eggperience.com </p></a>
+                <a href="#"><p id="foot19">Privacidad </p></a>
+                <p id="foot20">Eggperience - todos los derechos reservados  </p>
+                <p id="foot21">© </p>
+            </div>
+            <a href="https://www.instagram.com/" target="blank"><img src="../img/instagram.png" class="imag7"></a>
+            <a href="https://www.facebook.com/"  target="blank"><img src="../img/facebook.png" class="imag8"> </a>
+        </footer>
+    </div>
+
+    <div th:if="${SinLogin != 'SinLogin'}">
+        <footer>
+            <div class="foot" > 
+                <p id="foot1">Eggperience </p>
+                <p id="foot2">By egg </p>
+                <a href="/registro"> <p id="foot3">¡Registrate aquí!</p></a>
+                <p id="foot4">Descubre Eggperience </p>
+                <a href="/usuario/hotel"><p id="foot5">Hotel </p></a>
+                <a href="/usuario/habitaciones"><p id="foot6">Habitaciones </p></a>
+                <a href="/usuario/reservas"><p id="foot7">Reservas </p></a>
+                <a href="/usuario/ubicacion"><p id="foot8">Ubicación </p></a>
+                <a href="/usuario/conocenos"><p id="foot9">Quiénes somos </p></a>
+                <p id="foot10">Habitaciones </p>
+                <a href="/usuario/habitaciones"><p id="foot11">Doble </p></a>
+                <a href="/usuario/habitaciones"><p id="foot12">Cuádruple </p></a>
+                <a href="/usuario/habitaciones"><p id="foot13">Séxtuple </p></a>
+                <p id="foot14">Contáctanos </p>
+                <a href="https://api.whatsapp.com/send?phone=3875152032&text=%C2%A1Hola!%20Bienvenidos%20a%20Eggperiencie" target="blank"><p id="foot15">Reservas +3875152032 </p></a>
+                <a href="https://api.whatsapp.com/send?phone=3874631624&text=%C2%A1Hola!%20Bienvenidos%20a%20Eggperiencie" target="blank"><p id="foot16">Recepción +3874631624 </p></a>
+                <a href="https://api.whatsapp.com/send?phone=3876532043&text=%C2%A1Hola!%20Bienvenidos%20a%20Eggperiencie" target="blank"><p id="foot17">WhatsApp +3876532043 </p></a>
+                <a href="mailto:reservas@eggperience.com"><p id="foot18">reservas@eggperience.com </p></a>
+                <a href="#"><p id="foot19">Privacidad </p></a>
+                <p id="foot20">Eggperience - todos los derechos reservados  </p>
+                <p id="foot21">© </p>
+            </div>
+            <a href="https://www.instagram.com/" target="blank"><img src="../img/instagram.png" class="imag7"></a>
+            <a href="https://www.facebook.com/"  target="blank"><img src="../img/facebook.png" class="imag8"> </a>
+        </footer>
+    </div>
+</div>
